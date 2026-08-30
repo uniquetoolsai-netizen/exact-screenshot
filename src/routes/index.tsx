@@ -416,13 +416,13 @@ function Index() {
           </Reveal>
         </div>
 
-        <div className="-mt-52 overflow-hidden pb-6 pt-52">
+        <div className="mt-14 overflow-hidden py-4">
           <div className="marquee-track group/track hover:[animation-play-state:paused]">
             {[0, 1].map((dup) => (
               <div key={dup} className="flex shrink-0">
                 {[...branchRowA, ...branchRowB].map((city) => (
                   <div key={`${dup}-${city}`} className="group relative mx-2.5 shrink-0">
-                    <article className="neon-ring relative h-40 w-72 overflow-hidden rounded-3xl">
+                    <article className="neon-ring relative h-44 w-72 overflow-hidden rounded-3xl">
                       <img
                         src={branchImg}
                         alt={`FunBlast branch in ${city}`}
@@ -440,7 +440,7 @@ function Index() {
                       </div>
                     </article>
 
-                    <div className="pointer-events-none absolute bottom-[calc(100%+0.75rem)] left-1/2 z-30 -translate-x-1/2 translate-y-2 scale-95 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:scale-100 group-hover:opacity-100">
+                    <div className="pointer-events-none absolute -inset-4 z-30 scale-95 opacity-0 transition-all duration-300 group-hover:scale-100 group-hover:opacity-100">
                       <BranchMap city={city} />
                     </div>
                   </div>
@@ -451,7 +451,7 @@ function Index() {
         </div>
 
 
-        <div className="mt-10 flex justify-center">
+        <div className="mt-12 flex justify-center">
           <a href="#" className="btn-ghost-blast rounded-full">
             View all branches <ArrowRight className="h-4 w-4" />
           </a>
