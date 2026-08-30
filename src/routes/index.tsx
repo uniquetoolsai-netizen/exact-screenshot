@@ -416,7 +416,7 @@ function Index() {
           </Reveal>
         </div>
 
-        <div className="mt-12 overflow-hidden py-6">
+        <div className="-mt-52 overflow-hidden pb-6 pt-52">
           <div className="marquee-track group/track hover:[animation-play-state:paused]">
             {[0, 1].map((dup) => (
               <div key={dup} className="flex shrink-0">
