@@ -15,14 +15,14 @@ export function BranchMap({ city }: { city: string }) {
   const src = `https://www.google.com/maps?q=${c.lat},${c.lng}&z=14&output=embed`;
 
   return (
-    <div className="neon-ring w-72 overflow-hidden rounded-2xl border border-primary/30 bg-background/95 p-2 shadow-2xl backdrop-blur-md">
-      <div className="animate-scale-in overflow-hidden rounded-xl">
+    <div className="neon-ring flex h-full w-full flex-col overflow-hidden rounded-2xl border border-primary/30 bg-background/95 p-2 shadow-2xl backdrop-blur-md">
+      <div className="min-h-0 flex-1 overflow-hidden rounded-xl">
         <iframe
           key={city}
           title={`Map of FunBlast ${city}`}
           src={src}
           loading="lazy"
-          className="h-44 w-full border-0"
+          className="h-full w-full border-0"
           allowFullScreen
           referrerPolicy="no-referrer-when-downgrade"
         />
