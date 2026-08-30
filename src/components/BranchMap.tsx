@@ -19,7 +19,7 @@ export function BranchMap({ city }: { city: string }) {
   const p = BRANCH_POINTS[city] ?? { x: 60, y: 45 };
 
   return (
-    <div className="glass-strong neon-ring w-64 overflow-hidden rounded-2xl border border-primary/30 p-3">
+    <div className="neon-ring w-64 overflow-hidden rounded-2xl border border-primary/30 bg-background/95 p-3 shadow-2xl backdrop-blur-md">
       <svg viewBox="0 0 100 100" className="h-40 w-full">
         <defs>
           <linearGradient id="bm-fill" x1="0" y1="0" x2="1" y2="1">
