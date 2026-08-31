@@ -30,6 +30,7 @@ export const Route = createFileRoute("/branches")({
 });
 
 function BranchesPage() {
+  const [activeCity, setActiveCity] = useState<string | null>(null);
   return (
     <div className="min-h-screen overflow-x-hidden bg-background">
       <SiteHeader />
