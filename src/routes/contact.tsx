@@ -103,7 +103,7 @@ function ContactPage() {
   async function onSubmit(values: ContactFormValues) {
     setIsSubmitting(true);
     try {
-      const result = await submitContactForm(values);
+      const result = await submitContactForm({ data: values });
       toast.success(result.message);
       form.reset();
     } catch (error) {
