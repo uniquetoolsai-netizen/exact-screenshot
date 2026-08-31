@@ -84,7 +84,13 @@ export const BRANCH_DETAILS: Record<string, BranchInfo> = {
 const iconLink =
   "flex h-9 w-9 items-center justify-center rounded-full border border-primary/40 text-primary transition-colors hover:bg-primary hover:text-primary-foreground";
 
-export function BranchDetails({ city }: { city: string }) {
+export function BranchDetails({
+  city,
+  onClose,
+}: {
+  city: string;
+  onClose?: () => void;
+}) {
   const info = BRANCH_DETAILS[city];
   const [mapOpen, setMapOpen] = useState(false);
 
