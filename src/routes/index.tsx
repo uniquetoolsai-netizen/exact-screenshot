@@ -440,8 +440,8 @@ function Index() {
                       </div>
                     </article>
 
-                    <div className="pointer-events-none absolute -inset-4 z-30 scale-95 opacity-0 transition-all duration-300 group-hover:scale-100 group-hover:opacity-100">
-                      <BranchMap city={city} />
+                    <div className="pointer-events-none absolute -inset-4 z-30 scale-95 opacity-0 transition-all duration-300 group-hover:pointer-events-auto group-hover:scale-100 group-hover:opacity-100">
+                      <BranchDetails city={city} />
                     </div>
                   </div>
                 ))}
