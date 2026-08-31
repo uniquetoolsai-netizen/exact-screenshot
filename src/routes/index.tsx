@@ -46,7 +46,7 @@ import outdoorRide from "@/assets/rides/outdoor.jpg";
 import snowRide from "@/assets/rides/snow.jpg";
 import trampolineRide from "@/assets/rides/trampoline.jpg";
 import branchImg from "@/assets/branch.jpg";
-import { BranchMap } from "@/components/BranchMap";
+import { BranchDetails } from "@/components/BranchDetails";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -440,8 +440,8 @@ function Index() {
                       </div>
                     </article>
 
-                    <div className="pointer-events-none absolute -inset-4 z-30 scale-95 opacity-0 transition-all duration-300 group-hover:scale-100 group-hover:opacity-100">
-                      <BranchMap city={city} />
+                    <div className="pointer-events-none absolute -inset-4 z-30 scale-95 opacity-0 transition-all duration-300 group-hover:pointer-events-auto group-hover:scale-100 group-hover:opacity-100">
+                      <BranchDetails city={city} />
                     </div>
                   </div>
                 ))}
@@ -518,7 +518,7 @@ function Index() {
                 <Phone className="h-4 w-4 text-secondary" /> +91 63580 55050
               </li>
               <li className="flex items-center gap-2">
-                <Mail className="h-4 w-4 text-secondary" /> hello@funblast.in
+                <Mail className="h-4 w-4 text-secondary" /> funblast2007@gmail.com
               </li>
               <li className="flex items-start gap-2">
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-secondary" /> SBR Complex, SG
