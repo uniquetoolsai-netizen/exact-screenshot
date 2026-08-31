@@ -1,14 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { MapPin } from "lucide-react";
+import { useState } from "react";
 
-import { BranchDetails } from "@/components/BranchDetails";
-import { BranchMap } from "@/components/BranchMap";
+import { BranchCard } from "@/components/BranchCard";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { branchCities } from "@/data/site";
-import branchImg from "@/assets/branch.jpg";
 
 export const Route = createFileRoute("/branches")({
   head: () => ({
