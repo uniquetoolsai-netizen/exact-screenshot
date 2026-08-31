@@ -121,6 +121,7 @@ function MarqueeRow({ reverse = false }: { reverse?: boolean }) {
 }
 
 function Index() {
+  const [activeCity, setActiveCity] = useState<string | null>(null);
   return (
     <div className="min-h-screen overflow-x-hidden bg-background">
       <SiteHeader />
