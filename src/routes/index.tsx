@@ -518,7 +518,7 @@ function Index() {
                 <Phone className="h-4 w-4 text-secondary" /> +91 63580 55050
               </li>
               <li className="flex items-center gap-2">
-                <Mail className="h-4 w-4 text-secondary" /> hello@funblast.in
+                <Mail className="h-4 w-4 text-secondary" /> funblast2007@gmail.com
               </li>
               <li className="flex items-start gap-2">
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-secondary" /> SBR Complex, SG
