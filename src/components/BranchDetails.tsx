@@ -164,7 +164,8 @@ export function BranchDetails({ city }: { city: string }) {
               </button>
             </div>
           </div>
-        </div>
+        </div>,
+        document.body,
       )}
     </>
   );
