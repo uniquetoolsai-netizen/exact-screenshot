@@ -46,7 +46,7 @@ import outdoorRide from "@/assets/rides/outdoor.jpg";
 import snowRide from "@/assets/rides/snow.jpg";
 import trampolineRide from "@/assets/rides/trampoline.jpg";
 import branchImg from "@/assets/branch.jpg";
-import { BranchMap } from "@/components/BranchMap";
+import { BranchDetails } from "@/components/BranchDetails";
 
 export const Route = createFileRoute("/")({
   head: () => ({
