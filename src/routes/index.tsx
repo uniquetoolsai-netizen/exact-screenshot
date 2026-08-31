@@ -1,27 +1,15 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   ArrowRight,
   ArrowUpRight,
-  Car,
-  Facebook,
   Gamepad2,
-  Ghost,
   Gift,
-  Instagram,
-  Mail,
   MapPin,
-  Mountain,
-  PartyPopper,
-  Phone,
   ShieldCheck,
-  Smile,
-  Snowflake,
   Sparkles,
   Star,
   Ticket,
-  Trophy,
   Users,
-  Youtube,
   Zap,
 } from "lucide-react";
 
@@ -31,23 +19,15 @@ import { TiltCard } from "@/components/TiltCard";
 import { Gallery } from "@/components/Gallery";
 import { Awards } from "@/components/Awards";
 import { Testimonials } from "@/components/Testimonials";
+import { SiteHeader } from "@/components/SiteHeader";
+import { SiteFooter } from "@/components/SiteFooter";
+import { attractions } from "@/data/site";
 
-import logoAsset from "@/assets/funblast-logo.webp";
 import heroImg from "@/assets/hero.jpg";
-
-import arcadeRide from "@/assets/rides/arcade.jpg";
-import bowlingRide from "@/assets/rides/bowling.png";
-import kartingRide from "@/assets/rides/karting.png";
-import vrRide from "@/assets/rides/vr.png";
-import bumperRide from "@/assets/rides/bumper.jpg";
-import hauntedRide from "@/assets/rides/haunted.jpeg";
-import kidsRide from "@/assets/rides/kids.jpg";
-import outdoorRide from "@/assets/rides/outdoor.jpg";
-import snowRide from "@/assets/rides/snow.jpg";
-import trampolineRide from "@/assets/rides/trampoline.jpg";
 import branchImg from "@/assets/branch.jpg";
 import { BranchDetails } from "@/components/BranchDetails";
 import { BranchMap } from "@/components/BranchMap";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -71,20 +51,8 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const navLinks = ["Home", "Attractions", "Packages", "Branches", "Gallery", "Contact"];
 
-const attractions = [
-  { name: "Arcade Games Zone", tag: "Play, Win & Repeat", meta: "150+ machines", img: arcadeRide, Icon: Gamepad2 },
-  { name: "Bowling Alley", tag: "Roll Strikes & Spares", meta: "Pro lanes", img: bowlingRide, Icon: Trophy },
-  { name: "Go Karting", tag: "Life Is Short, Track Is Long", meta: "Speed track", img: kartingRide, Icon: Zap },
-  { name: "VR Gaming Arena", tag: "Enter Another Reality", meta: "Free roam", img: vrRide, Icon: Sparkles },
-  { name: "Bumper Cars", tag: "Crash, Drift & Laugh Together", meta: "Group fun", img: bumperRide, Icon: Car },
-  { name: "Haunted House", tag: "Dare To Enter The Darkness", meta: "Live scares", img: hauntedRide, Icon: Ghost },
-  { name: "Kids Play Area", tag: "Unlimited Smiles & Tiny Adventures", meta: "Ages 2–10", img: kidsRide, Icon: Smile },
-  { name: "Outdoor Adventure", tag: "Adventure Beyond Every Limit", meta: "Open air", img: outdoorRide, Icon: Mountain },
-  { name: "Snow Park", tag: "Feel The Magic Of Real Snow", meta: "Real snow", img: snowRide, Icon: Snowflake },
-  { name: "Trampoline Park", tag: "Jump Higher, Play Harder", meta: "Foam pit", img: trampolineRide, Icon: PartyPopper },
-];
+
 
 const reasons = [
   {
@@ -128,23 +96,8 @@ const ticker = [
   "Laser Tag",
 ];
 
-function Logo() {
-  return (
-    <a href="#" className="group inline-flex items-center gap-3">
-      <img
-        src={logoAsset}
-        alt="FunBlast Gaming Zone logo"
-        className="h-12 w-auto transition-transform duration-300 group-hover:scale-105 md:h-14"
-      />
-      <span className="hidden flex-col leading-none sm:flex">
-        <span className="font-display text-lg tracking-wide text-foreground">GAMING ZONE</span>
-        <span className="font-sans text-[0.55rem] tracking-[0.34em] text-muted-foreground">
-          ONE-STOP FOR FUN
-        </span>
-      </span>
-    </a>
-  );
-}
+
+
 
 
 function MarqueeRow({ reverse = false }: { reverse?: boolean }) {
@@ -172,22 +125,8 @@ function MarqueeRow({ reverse = false }: { reverse?: boolean }) {
 function Index() {
   return (
     <div className="min-h-screen overflow-x-hidden bg-background">
-      {/* Nav */}
-      <header className="fixed top-0 z-50 w-full px-3 pt-3 md:px-6 md:pt-5">
-        <div className="glass-strong mx-auto flex max-w-[112rem] items-center justify-between gap-6 rounded-2xl px-5 md:px-10 py-2.5 md:px-6">
-          <Logo />
-          <nav className="hidden items-center gap-7 lg:flex">
-            {navLinks.map((link, i) => (
-              <a key={link} href="#" className={`nav-link ${i === 0 ? "text-primary" : ""}`}>
-                {link}
-              </a>
-            ))}
-          </nav>
-          <a href="#" className="btn-blast rounded-full">
-            Book Tickets <Ticket className="h-4 w-4" />
-          </a>
-        </div>
-      </header>
+      <SiteHeader />
+
 
       {/* ── Hero: kinetic arcade stage ── */}
       <section className="relative flex min-h-[780px] items-center overflow-hidden pt-32 pb-20">
@@ -224,14 +163,15 @@ function Index() {
             </Reveal>
             <Reveal from="up" delay={260}>
               <div className="mt-9 flex flex-wrap items-center gap-4">
-                <a href="#" className="btn-blast rounded-full px-6 py-3">
+                <Link to="/contact" className="btn-blast rounded-full px-6 py-3">
                   Book Tickets <Ticket className="h-4 w-4" />
-                </a>
-                <a href="#attractions" className="btn-ghost-blast rounded-full px-6 py-3">
+                </Link>
+                <Link to="/attractions" className="btn-ghost-blast rounded-full px-6 py-3">
                   Explore Rides <ArrowRight className="h-4 w-4" />
-                </a>
+                </Link>
               </div>
             </Reveal>
+
 
             <Reveal from="up" delay={340}>
               <dl className="mt-12 grid max-w-xl grid-cols-2 gap-3 sm:grid-cols-4">
@@ -263,12 +203,13 @@ function Index() {
               <p className="mt-1 text-xs text-muted-foreground">
                 Six-player free-roam missions. Live at 4 branches.
               </p>
-              <a
-                href="#"
+              <Link
+                to="/attractions"
                 className="mt-4 inline-flex items-center gap-1 font-sans text-xs font-bold tracking-[0.16em] text-primary uppercase"
               >
                 Try it <ArrowUpRight className="h-3.5 w-3.5" />
-              </a>
+              </Link>
+
             </TiltCard>
             <TiltCard className="glass mt-6 w-56 rounded-3xl p-5">
               <p className="font-display text-3xl text-primary">
@@ -456,9 +397,10 @@ function Index() {
 
 
         <div className="mt-12 flex justify-center">
-          <a href="#" className="btn-ghost-blast rounded-full">
+          <Link to="/branches" className="btn-ghost-blast rounded-full">
             View all branches <ArrowRight className="h-4 w-4" />
-          </a>
+          </Link>
+
         </div>
       </section>
 
@@ -477,88 +419,17 @@ function Index() {
               <p className="max-w-md text-sm text-muted-foreground">
                 Grab your passes online and skip the counter queue at any FunBlast branch.
               </p>
-              <a href="#" className="btn-blast rounded-full px-7 py-3.5">
+              <Link to="/contact" className="btn-blast rounded-full px-7 py-3.5">
                 Book Tickets <Ticket className="h-4 w-4" />
-              </a>
+              </Link>
+
             </div>
           </div>
         </Reveal>
       </section>
 
-      {/* Footer */}
-      <footer className="border-t border-border/50">
-        <div className="mx-auto grid max-w-[112rem] gap-10 px-5 md:px-10 py-14 md:grid-cols-2 lg:grid-cols-5">
-          <div>
-            <Logo />
-            <p className="mt-5 max-w-xs text-sm leading-relaxed text-muted-foreground">
-              India's leading entertainment destination with world-class games, thrilling
-              rides and unforgettable experiences.
-            </p>
-            <div className="mt-5 flex gap-3">
-              {[Facebook, Instagram, Youtube].map((Icon, i) => (
-                <a
-                  key={i}
-                  href="#"
-                  aria-label="FunBlast social profile"
-                  className="glass flex h-10 w-10 items-center justify-center rounded-full text-muted-foreground transition-all hover:-translate-y-1 hover:text-primary"
-                >
-                  <Icon className="h-4 w-4" />
-                </a>
-              ))}
-            </div>
-          </div>
-
-          <FooterCol title="Quick Links" items={navLinks} />
-          <FooterCol
-            title="Attractions"
-            items={["Bowling", "Go Karting", "VR Games", "Trampoline Park", "Arcade", "Kids Zone"]}
-          />
-          <FooterCol title="Packages" items={["Birthday", "School", "Corporate", "Group"]} />
-
-          <div>
-            <h3 className="font-display text-sm text-primary">Contact Us</h3>
-            <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
-              <li className="flex items-center gap-2">
-                <Phone className="h-4 w-4 text-secondary" /> +91 63580 55050
-              </li>
-              <li className="flex items-center gap-2">
-                <Mail className="h-4 w-4 text-secondary" /> funblast2007@gmail.com
-              </li>
-              <li className="flex items-start gap-2">
-                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-secondary" /> SBR Complex, SG
-                Highway, Ahmedabad, Gujarat
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <div className="border-t border-border/50">
-          <div className="mx-auto flex max-w-[112rem] flex-wrap items-center justify-between gap-3 px-5 md:px-10 py-6 font-sans text-xs tracking-[0.14em] text-muted-foreground uppercase">
-            <p>© 2026 FunBlast Gaming Zone</p>
-            <p>Privacy · Terms</p>
-          </div>
-        </div>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }
 
-function FooterCol({ title, items }: { title: string; items: string[] }) {
-  return (
-    <div>
-      <h3 className="font-display text-sm text-primary">{title}</h3>
-      <ul className="mt-4 space-y-2.5">
-        {items.map((item) => (
-          <li key={item}>
-            <a
-              href="#"
-              className="text-sm text-muted-foreground transition-colors hover:text-primary"
-            >
-              {item}
-            </a>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-}
