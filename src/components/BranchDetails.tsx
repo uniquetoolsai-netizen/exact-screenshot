@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import { Instagram, MapPin, Phone, X, Youtube } from "lucide-react";
 import { BranchMap } from "./BranchMap";
 
@@ -138,7 +139,8 @@ export function BranchDetails({ city }: { city: string }) {
         </div>
       </div>
 
-      {mapOpen && (
+      {mapOpen &&
+        createPortal(
         <div
           className="fixed inset-0 z-[90] flex items-center justify-center bg-background/80 p-4 backdrop-blur-sm"
           onClick={() => setMapOpen(false)}
