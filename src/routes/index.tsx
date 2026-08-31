@@ -358,9 +358,24 @@ function Index() {
         </div>
 
         <div className="mt-10 overflow-hidden pb-4 md:-mt-44 md:pt-44">
+          {/* Mobile: swipeable snap row */}
+          <div className="flex snap-x snap-mandatory overflow-x-auto pb-4 md:hidden">
+            {[...branchRowA, ...branchRowB].map((city) => (
+              <div key={city} className="snap-center shrink-0 px-2.5 first:pl-5 last:pr-5">
+                <BranchCard
+                  city={city}
+                  variant="home"
+                  activeCity={activeCity}
+                  setActiveCity={setActiveCity}
+                />
+              </div>
+            ))}
+          </div>
+
+          {/* Desktop: animated marquee */}
           <div
             className={`
-              marquee-track group/track hover:[animation-play-state:paused]
+              hidden marquee-track group/track hover:[animation-play-state:paused] md:flex
               ${activeCity ? "[animation-play-state:paused]" : ""}
             `}
           >
