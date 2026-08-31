@@ -1,10 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useState } from "react";
 import {
   ArrowRight,
   ArrowUpRight,
   Gamepad2,
   Gift,
-  MapPin,
   ShieldCheck,
   Sparkles,
   Star,
@@ -21,12 +21,10 @@ import { Awards } from "@/components/Awards";
 import { Testimonials } from "@/components/Testimonials";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
+import { BranchCard } from "@/components/BranchCard";
 import { attractions } from "@/data/site";
 
 import heroImg from "@/assets/hero.jpg";
-import branchImg from "@/assets/branch.jpg";
-import { BranchDetails } from "@/components/BranchDetails";
-import { BranchMap } from "@/components/BranchMap";
 
 
 export const Route = createFileRoute("/")({
