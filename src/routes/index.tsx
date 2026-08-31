@@ -1,10 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useState } from "react";
 import {
   ArrowRight,
   ArrowUpRight,
   Gamepad2,
   Gift,
-  MapPin,
   ShieldCheck,
   Sparkles,
   Star,
@@ -21,12 +21,10 @@ import { Awards } from "@/components/Awards";
 import { Testimonials } from "@/components/Testimonials";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
+import { BranchCard } from "@/components/BranchCard";
 import { attractions } from "@/data/site";
 
 import heroImg from "@/assets/hero.jpg";
-import branchImg from "@/assets/branch.jpg";
-import { BranchDetails } from "@/components/BranchDetails";
-import { BranchMap } from "@/components/BranchMap";
 
 
 export const Route = createFileRoute("/")({
@@ -123,6 +121,7 @@ function MarqueeRow({ reverse = false }: { reverse?: boolean }) {
 }
 
 function Index() {
+  const [activeCity, setActiveCity] = useState<string | null>(null);
   return (
     <div className="min-h-screen overflow-x-hidden bg-background">
       <SiteHeader />
@@ -358,36 +357,38 @@ function Index() {
           </Reveal>
         </div>
 
-        <div className="-mt-44 overflow-hidden pb-4 pt-44">
-          <div className="marquee-track group/track hover:[animation-play-state:paused]">
+        <div className="mt-10 overflow-hidden pb-4 md:-mt-44 md:pt-44">
+          {/* Mobile: swipeable snap row */}
+          <div className="flex snap-x snap-mandatory overflow-x-auto pb-4 md:hidden">
+            {[...branchRowA, ...branchRowB].map((city) => (
+              <div key={city} className="snap-center shrink-0 px-2.5 first:pl-5 last:pr-5">
+                <BranchCard
+                  city={city}
+                  variant="home"
+                  activeCity={activeCity}
+                  setActiveCity={setActiveCity}
+                />
+              </div>
+            ))}
+          </div>
+
+          {/* Desktop: animated marquee */}
+          <div
+            className={`
+              hidden marquee-track group/track hover:[animation-play-state:paused] md:flex
+              ${activeCity ? "[animation-play-state:paused]" : ""}
+            `}
+          >
             {[0, 1].map((dup) => (
               <div key={dup} className="flex shrink-0">
                 {[...branchRowA, ...branchRowB].map((city) => (
-                  <div key={`${dup}-${city}`} className="group relative mx-2.5 shrink-0">
-                    <div className="pointer-events-none absolute bottom-[calc(100%+0.75rem)] left-1/2 z-40 h-40 w-80 -translate-x-1/2 translate-y-3 scale-95 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:scale-100 group-hover:opacity-100">
-                      <BranchMap city={city} />
-                    </div>
-                    <article className="neon-ring relative h-44 w-72 overflow-hidden rounded-3xl">
-                      <img
-                        src={branchImg}
-                        alt={`FunBlast branch in ${city}`}
-                        loading="lazy"
-                        width={800}
-                        height={600}
-                        className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-background via-background/35 to-transparent" />
-                      <div className="relative flex h-full items-end justify-between p-4">
-                        <h3 className="max-w-[75%] font-display text-base leading-tight">
-                          {city}
-                        </h3>
-                        <MapPin className="h-4 w-4 text-primary" />
-                      </div>
-                    </article>
-
-                    <div className="pointer-events-none absolute -inset-4 z-30 scale-95 opacity-0 transition-all duration-300 group-hover:pointer-events-auto group-hover:scale-100 group-hover:opacity-100">
-                      <BranchDetails city={city} />
-                    </div>
+                  <div key={`${dup}-${city}`} className="mx-2.5 shrink-0">
+                    <BranchCard
+                      city={city}
+                      variant="home"
+                      activeCity={activeCity}
+                      setActiveCity={setActiveCity}
+                    />
                   </div>
                 ))}
               </div>

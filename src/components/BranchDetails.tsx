@@ -84,7 +84,13 @@ export const BRANCH_DETAILS: Record<string, BranchInfo> = {
 const iconLink =
   "flex h-9 w-9 items-center justify-center rounded-full border border-primary/40 text-primary transition-colors hover:bg-primary hover:text-primary-foreground";
 
-export function BranchDetails({ city }: { city: string }) {
+export function BranchDetails({
+  city,
+  onClose,
+}: {
+  city: string;
+  onClose?: () => void;
+}) {
   const info = BRANCH_DETAILS[city];
   const [mapOpen, setMapOpen] = useState(false);
 
@@ -103,7 +109,19 @@ export function BranchDetails({ city }: { city: string }) {
     <>
       <div className="neon-ring flex h-full w-full flex-col justify-between rounded-2xl border border-primary/30 bg-background/95 p-4 shadow-2xl backdrop-blur-md">
         <div>
-          <p className="font-display text-sm tracking-wide text-primary">{city}</p>
+          <div className="flex items-start justify-between gap-2">
+            <p className="font-display text-sm tracking-wide text-primary">{city}</p>
+            {onClose && (
+              <button
+                type="button"
+                onClick={onClose}
+                aria-label="Close branch details"
+                className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-secondary text-secondary-foreground transition-transform hover:scale-110"
+              >
+                <X className="h-3 w-3" />
+              </button>
+            )}
+          </div>
           <p className="mt-1.5 flex items-start gap-1.5 text-xs leading-snug text-muted-foreground">
             <MapPin className="mt-0.5 h-3.5 w-3.5 shrink-0 text-primary" />
             {info.address}
