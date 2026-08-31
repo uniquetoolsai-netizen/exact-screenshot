@@ -357,11 +357,11 @@ function Index() {
           </Reveal>
         </div>
 
-        <div className="mt-10 overflow-hidden pb-4 md:-mt-44 md:pt-44">
+        <div className="relative z-30 -mt-52 overflow-hidden pb-4 md:-mt-36 md:pt-44">
           {/* Mobile: swipeable snap row */}
-          <div className="flex snap-x snap-mandatory overflow-x-auto pb-4 md:hidden">
+          <div className="flex snap-x snap-mandatory overflow-x-auto pb-4 pt-52 md:hidden">
             {[...branchRowA, ...branchRowB].map((city) => (
-              <div key={city} className="snap-center shrink-0 px-2.5 first:pl-5 last:pr-5">
+              <div key={city} className="w-[80vw] max-w-sm snap-center shrink-0 px-2.5 first:pl-5 last:pr-5">
                 <BranchCard
                   city={city}
                   variant="home"
@@ -382,7 +382,7 @@ function Index() {
             {[0, 1].map((dup) => (
               <div key={dup} className="flex shrink-0">
                 {[...branchRowA, ...branchRowB].map((city) => (
-                  <div key={`${dup}-${city}`} className="mx-2.5 shrink-0">
+                  <div key={`${dup}-${city}`} className="mx-2.5 w-72 shrink-0 lg:w-80">
                     <BranchCard
                       city={city}
                       variant="home"
