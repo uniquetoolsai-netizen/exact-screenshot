@@ -17,12 +17,6 @@ export function Logo({ compact = false }: { compact?: boolean }) {
           }`}
         />
       </span>
-      <span className="hidden min-w-0 flex-col leading-none sm:flex">
-        <span className="font-display text-lg tracking-wide text-foreground">GAMING ZONE</span>
-        <span className="font-sans text-[0.55rem] tracking-[0.34em] text-muted-foreground">
-          ONE-STOP FOR FUN
-        </span>
-      </span>
     </Link>
   );
 }
