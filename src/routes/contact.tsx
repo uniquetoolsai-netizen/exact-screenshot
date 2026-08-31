@@ -86,17 +86,7 @@ const iconLink =
   "flex h-9 w-9 items-center justify-center rounded-full border border-primary/40 text-primary transition-colors hover:bg-primary hover:text-primary-foreground";
 
 function ContactPage() {
-  const submit = useServerFn(submitContactForm);
-  const mutation = useMutation({
-    mutationFn: submit,
-    onSuccess: (data) => {
-      toast.success(data.message);
-      form.reset();
-    },
-    onError: (error) => {
-      toast.error(error instanceof Error ? error.message : "Something went wrong. Please try again.");
-    },
-  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const form = useForm<ContactFormValues>({
     resolver: zodResolver(contactSchema),
@@ -104,13 +94,22 @@ function ContactPage() {
       name: "",
       email: "",
       phone: "",
-      enquiryType: undefined,
+      enquiryType: "general",
       message: "",
     },
   });
 
-  function onSubmit(values: ContactFormValues) {
-    mutation.mutate(values);
+  async function onSubmit(values: ContactFormValues) {
+    setIsSubmitting(true);
+    try {
+      const result = await submitContactForm(values);
+      toast.success(result.message);
+      form.reset();
+    } catch (error) {
+      toast.error(error instanceof Error ? error.message : "Something went wrong. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   return (
