@@ -357,7 +357,7 @@ function Index() {
           </Reveal>
         </div>
 
-        <div className="mt-10 overflow-hidden pb-4 md:-mt-44 md:pt-44">
+        <div className="relative z-30 mt-10 overflow-hidden pb-4 md:-mt-44 md:pt-44">
           {/* Mobile: swipeable snap row */}
           <div className="-mt-52 flex snap-x snap-mandatory overflow-x-auto pb-4 pt-52 md:hidden">
             {[...branchRowA, ...branchRowB].map((city) => (
