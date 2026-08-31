@@ -37,11 +37,11 @@ export function BranchCard({
       aria-label={`${city} branch`}
       aria-pressed={isOpen}
     >
-      {/* Desktop: real Google Map pops up above the card */}
+      {/* Real Google Map pops up above the card (hover on desktop, tap on mobile) */}
       <div
         className={`
-          pointer-events-none absolute bottom-[calc(100%+0.75rem)] left-1/2 z-40 hidden md:block
-          ${isHome ? "h-40 w-80" : "h-48 w-[min(22rem,calc(100vw-2.5rem))]"}
+          pointer-events-none absolute bottom-[calc(100%+0.75rem)] left-1/2 z-40
+          h-44 w-[min(20rem,calc(100vw-2.5rem))] md:h-48 md:w-[min(22rem,calc(100vw-2.5rem))]
           -translate-x-1/2 transition-all duration-300
           ${isOpen ? "translate-y-0 scale-100 opacity-100" : "translate-y-3 scale-95 opacity-0"}
         `}
@@ -49,12 +49,7 @@ export function BranchCard({
         <BranchMap city={city} />
       </div>
 
-      <article
-        className={`
-          neon-ring relative h-full w-full overflow-hidden rounded-3xl
-          ${isHome ? "h-44 w-72" : "aspect-square w-full"}
-        `}
-      >
+      <article className="neon-ring relative aspect-square w-full overflow-hidden rounded-3xl">
         <img
           src={branchImg}
           alt={`FunBlast branch in ${city}`}
@@ -65,13 +60,7 @@ export function BranchCard({
         />
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/35 to-transparent" />
         <div className="relative flex h-full items-end justify-between p-4 md:p-5">
-          <h2
-            className={`max-w-[75%] font-display leading-tight ${
-              isHome ? "text-base md:text-xl" : "text-xl"
-            }`}
-          >
-            {city}
-          </h2>
+          <h2 className="max-w-[75%] font-display text-xl leading-tight">{city}</h2>
           <MapPin className="h-4 w-4 text-primary md:h-5 md:w-5" />
         </div>
       </article>
