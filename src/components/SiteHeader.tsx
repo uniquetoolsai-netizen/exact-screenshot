@@ -1,9 +1,13 @@
 import { useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { Menu, Ticket, X } from "lucide-react";
+import { ChevronDown, MapPin, Menu, Ticket, X } from "lucide-react";
+
+import { BRANCH_DETAILS } from "@/components/BranchDetails";
 
 import logoAsset from "@/assets/funblast-logo.webp";
-import { navLinks } from "@/data/site";
+import { branchCities, navLinks } from "@/data/site";
+
+const slugOf = (city: string) => city.toLowerCase().replace(/\s+/g, "-");
 
 export function Logo({ compact = false }: { compact?: boolean }) {
   return (
@@ -30,17 +34,50 @@ export function SiteHeader() {
         <Logo />
 
         <nav className="hidden items-center gap-7 lg:flex">
-          {navLinks.map(({ label, to }) => (
-            <Link
-              key={to}
-              to={to}
-              activeOptions={{ exact: true }}
-              activeProps={{ className: "text-primary" }}
-              className="nav-link"
-            >
-              {label}
-            </Link>
-          ))}
+          {navLinks.map(({ label, to }) =>
+            to === "/branches" ? (
+              <div key={to} className="group/mega relative">
+                <Link to={to} activeProps={{ className: "text-primary" }} className="nav-link inline-flex items-center gap-1">
+                  {label} <ChevronDown className="h-3.5 w-3.5 transition-transform group-hover/mega:rotate-180" />
+                </Link>
+                <div className="invisible absolute left-1/2 top-full z-50 w-[44rem] -translate-x-1/2 pt-5 opacity-0 transition-all duration-200 group-hover/mega:visible group-hover/mega:opacity-100 group-focus-within/mega:visible group-focus-within/mega:opacity-100">
+                  <div className="glass-strong rounded-2xl border border-primary/20 p-5 shadow-2xl">
+                    <div className="mb-3 flex items-center justify-between">
+                      <p className="font-display text-sm tracking-wide text-primary">Our Branches</p>
+                      <Link to="/branches" className="text-xs text-muted-foreground hover:text-primary">View all →</Link>
+                    </div>
+                    <div className="grid grid-cols-2 gap-2">
+                      {branchCities.map((city) => (
+                        <Link
+                          key={city}
+                          to="/branches/$slug"
+                          params={{ slug: slugOf(city) }}
+                          activeProps={{ className: "bg-primary/15" }}
+                          className="flex items-start gap-3 rounded-xl p-3 transition-colors hover:bg-foreground/10"
+                        >
+                          <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                          <span>
+                            <span className="block font-display text-sm tracking-wide">{city}</span>
+                            <span className="block text-xs text-muted-foreground">{BRANCH_DETAILS[city]?.address}</span>
+                          </span>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <Link
+                key={to}
+                to={to}
+                activeOptions={{ exact: true }}
+                activeProps={{ className: "text-primary" }}
+                className="nav-link"
+              >
+                {label}
+              </Link>
+            ),
+          )}
         </nav>
 
         <Link to="/contact" className="btn-blast hidden rounded-full lg:inline-flex">
@@ -66,7 +103,7 @@ export function SiteHeader() {
             onClick={() => setOpen(false)}
             className="absolute inset-0 bg-background/80 backdrop-blur-sm"
           />
-          <div className="glass-strong absolute inset-x-3 top-3 rounded-2xl p-5">
+          <div className="glass-strong absolute inset-x-3 top-3 max-h-[calc(100vh-1.5rem)] overflow-y-auto rounded-2xl p-5">
             <div className="flex items-center justify-between gap-4">
               <Logo compact />
               <button
@@ -93,6 +130,22 @@ export function SiteHeader() {
                 </Link>
               ))}
             </nav>
+            <div className="mt-4">
+              <p className="font-display text-sm tracking-wide text-primary">Our Branches</p>
+              <div className="mt-2 grid grid-cols-2 gap-2">
+                {branchCities.map((city) => (
+                  <Link
+                    key={city}
+                    to="/branches/$slug"
+                    params={{ slug: slugOf(city) }}
+                    onClick={() => setOpen(false)}
+                    className="rounded-lg bg-foreground/5 px-3 py-2 text-sm"
+                  >
+                    {city}
+                  </Link>
+                ))}
+              </div>
+            </div>
 
             <Link
               to="/contact"
