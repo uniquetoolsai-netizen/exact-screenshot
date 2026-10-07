@@ -499,6 +499,43 @@
   }
 }
 
+.gallery-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 48s linear infinite;
+}
+
+.gallery-track-reverse {
+  animation-name: marquee-rev;
+  animation-duration: 44s;
+}
+
+.gallery-slider:hover .gallery-track,
+.gallery-slider:focus-within .gallery-track {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gallery-track {
+    animation: none;
+  }
+  .gallery-row {
+    overflow-x: auto;
+  }
+  .gallery-photo {
+    transition: none;
+  }
+}
+
+@media (hover: none) {
+  .gallery-row {
+    overflow-x: auto;
+  }
+  .gallery-track {
+    animation: none;
+  }
+}
+
 @keyframes bm-ping {
   0% {
     transform: scale(0.6);
