@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { ChevronDown, MapPin, Menu, Ticket, X } from "lucide-react";
+import { ChevronDown, MapPin, Menu, PartyPopper, X } from "lucide-react";
 
 import { BRANCH_DETAILS } from "@/components/BranchDetails";
 
@@ -98,8 +98,9 @@ export function SiteHeader() {
           )}
         </nav>
 
-        <Link to="/contact" className="btn-blast hidden rounded-full lg:inline-flex">
-          Book Tickets <Ticket className="h-4 w-4" />
+        <Link to="/packages" className="btn-blast group relative hidden rounded-full lg:inline-flex">
+          <span className="absolute inset-0 -z-10 animate-ping rounded-full bg-primary/40 motion-reduce:animate-none" />
+          <PartyPopper className="h-4 w-4 transition-transform group-hover:-rotate-12 group-hover:scale-125" /> Plan a Party
         </Link>
 
         <button
@@ -170,7 +171,7 @@ export function SiteHeader() {
               onClick={() => setOpen(false)}
               className="btn-blast mt-5 w-full justify-center rounded-full"
             >
-              Book Tickets <Ticket className="h-4 w-4" />
+              <PartyPopper className="h-4 w-4" /> Plan a Party
             </Link>
           </div>
         </div>
