@@ -1,4 +1,6 @@
 import { MapPin } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 
 import { BranchDetails } from "./BranchDetails";
 import { BranchMap } from "./BranchMap";
@@ -20,34 +22,85 @@ export function BranchCard({
   setActiveCity,
 }: BranchCardProps) {
   const isOpen = activeCity === city;
-  const open = () => setActiveCity(city);
+  const cardRef = useRef<HTMLDivElement>(null);
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const [position, setPosition] = useState<{ left: number; top: number; width: number; height: number } | null>(null);
+  const open = () => {
+    if (closeTimer.current) clearTimeout(closeTimer.current);
+    setActiveCity(city);
+  };
   const close = () => setActiveCity(null);
+  const scheduleClose = () => {
+    closeTimer.current = setTimeout(close, 180);
+  };
   const toggle = () => setActiveCity(isOpen ? null : city);
 
   const isHome = variant === "home";
 
+  useEffect(() => {
+    if (!isOpen) {
+      setPosition(null);
+      return;
+    }
+    let frame = 0;
+    const update = () => {
+      const rect = cardRef.current?.getBoundingClientRect();
+      if (rect) {
+        const width = Math.min(352, window.innerWidth - 32);
+        const height = Math.min(264, window.innerHeight - 160);
+        const left = Math.max(16, Math.min(rect.left + rect.width / 2 - width / 2, window.innerWidth - width - 16));
+        const above = rect.top - height - 16;
+        const top = above >= 128 ? above : Math.max(128, Math.min(rect.bottom + 16, window.innerHeight - height - 16));
+        const visible = rect.right > 24 && rect.left < window.innerWidth - 24 && rect.bottom > 128 && rect.top < window.innerHeight;
+        setPosition((previous) => {
+          if (!visible) return null;
+          if (previous?.left === left && previous.top === top && previous.width === width && previous.height === height) return previous;
+          return { left, top, width, height };
+        });
+      }
+      frame = requestAnimationFrame(update);
+    };
+    update();
+    return () => cancelAnimationFrame(frame);
+  }, [isOpen]);
+
+  useEffect(() => () => {
+    if (closeTimer.current) clearTimeout(closeTimer.current);
+  }, []);
+
   return (
     <div
+      ref={cardRef}
       className="group relative shrink-0 cursor-pointer focus:outline-none"
       onMouseEnter={open}
-      onMouseLeave={close}
+      onMouseLeave={scheduleClose}
       onClick={toggle}
+      onKeyDown={(event) => {
+        if (event.target !== event.currentTarget) return;
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          toggle();
+        }
+        if (event.key === "Escape") close();
+      }}
       role="button"
       tabIndex={0}
       aria-label={`${city} branch`}
       aria-pressed={isOpen}
     >
-      {/* Real Google Map pops up above the card (hover on desktop, tap on mobile) */}
-      <div
-        className={`
-          pointer-events-none absolute bottom-[calc(100%+0.75rem)] left-1/2 z-40
-          h-44 w-[min(20rem,calc(100vw-2.5rem))] md:h-48 md:w-[min(22rem,calc(100vw-2.5rem))]
-          -translate-x-1/2 transition-all duration-300
-          ${isOpen ? "translate-y-0 scale-100 opacity-100" : "translate-y-3 scale-95 opacity-0"}
-        `}
-      >
-        <BranchMap city={city} />
-      </div>
+      {isOpen && position && createPortal(
+        <div
+          className="fixed z-[80] animate-in fade-in zoom-in-95 duration-200 motion-reduce:animate-none"
+          style={position}
+          onMouseEnter={open}
+          onMouseLeave={scheduleClose}
+          onClick={(event) => event.stopPropagation()}
+          data-branch-map-popup={city}
+        >
+          <BranchMap city={city} />
+        </div>,
+        document.body,
+      )}
 
       <article className="neon-ring relative aspect-square w-full overflow-hidden rounded-3xl">
         <img
