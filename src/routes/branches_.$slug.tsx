@@ -1,5 +1,5 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { ArrowLeft, Instagram, MapPin, Phone } from "lucide-react";
+import { ArrowLeft, Instagram, MapPin, Phone, Youtube } from "lucide-react";
 
 import { BRANCH_DETAILS } from "@/components/BranchDetails";
 import { BranchMap } from "@/components/BranchMap";
@@ -81,6 +81,7 @@ function BranchPage() {
                 <div className="mt-4 hidden flex-wrap gap-3 md:flex">
                   <a href={info.phoneHref} className="pill glass inline-flex items-center gap-2"><Phone className="h-4 w-4 text-primary" />{info.phone}</a>
                   <a href={info.instagram} target="_blank" rel="noreferrer" className="pill glass inline-flex items-center gap-2"><Instagram className="h-4 w-4 text-primary" />Instagram</a>
+                  <a href={info.youtube} target="_blank" rel="noreferrer" className="pill glass inline-flex items-center gap-2"><Youtube className="h-4 w-4 text-primary" />YouTube</a>
                   <a href={info.maps} target="_blank" rel="noreferrer" className="pill glass inline-flex items-center gap-2"><MapPin className="h-4 w-4 text-primary" />Directions</a>
                 </div>
               )}
@@ -123,6 +124,12 @@ function BranchPage() {
             <h2 className="font-display text-3xl">Visit us</h2>
             <p className="mt-4 flex gap-2 text-muted-foreground"><MapPin className="h-5 w-5 shrink-0 text-primary" />{info.address}</p>
             <a href={info.phoneHref} className="mt-3 flex gap-2 font-semibold hover:text-primary"><Phone className="h-5 w-5 text-primary" />{info.phone}</a>
+            <h3 className="mt-8 font-display text-xl">Follow {city}</h3>
+            <div className="mt-4 flex flex-wrap gap-3">
+              <a href={info.instagram} target="_blank" rel="noreferrer" className="pill glass inline-flex items-center gap-2 transition-colors hover:text-primary"><Instagram className="h-4 w-4 text-primary" />Instagram</a>
+              <a href={info.youtube} target="_blank" rel="noreferrer" className="pill glass inline-flex items-center gap-2 transition-colors hover:text-primary"><Youtube className="h-4 w-4 text-primary" />YouTube</a>
+              <a href={info.maps} target="_blank" rel="noreferrer" className="pill glass inline-flex items-center gap-2 transition-colors hover:text-primary"><MapPin className="h-4 w-4 text-primary" />Google Maps</a>
+            </div>
           </div>
           <div className="h-80"><BranchMap city={city} /></div>
         </section>
