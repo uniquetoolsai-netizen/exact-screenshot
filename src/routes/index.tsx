@@ -24,7 +24,7 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { BranchCard } from "@/components/BranchCard";
 import { attractions } from "@/data/site";
 
-import heroImg from "@/assets/hero.jpg";
+import { photos } from "@/data/photos";
 
 
 export const Route = createFileRoute("/")({
@@ -44,6 +44,8 @@ export const Route = createFileRoute("/")({
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:image", content: photos.airHockey },
+      { name: "twitter:image", content: photos.airHockey },
     ],
   }),
   component: Index,
@@ -130,8 +132,8 @@ function Index() {
       {/* ── Hero: kinetic arcade stage ── */}
       <section className="relative flex min-h-[780px] items-center overflow-hidden pt-32 pb-20">
         <img
-          src={heroImg}
-          alt="Kids racing a go-kart and playing VR at FunBlast gaming zone"
+          src={photos.airHockey}
+          alt="Visitors playing air hockey at FunBlast arcade"
           width={1600}
           height={1008}
           className="absolute inset-0 h-full w-full object-cover object-[70%_center] opacity-80"

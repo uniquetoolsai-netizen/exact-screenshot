@@ -2,9 +2,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 import { PartyBanner } from "@/components/PartyBanner";
-import birthdayImg from "@/assets/parties/birthday.png";
-import kittyImg from "@/assets/parties/kitty.png";
-import corporateImg from "@/assets/parties/corporate.png";
+import { photos } from "@/data/photos";
 
 const slides = [
   {
@@ -22,8 +20,8 @@ const slides = [
     price: "₹499",
     priceNote: "per guest onwards",
     cta: "Plan My Party",
-    img: birthdayImg,
-    alt: "Family celebrating a birthday party at FunBlast",
+    img: photos.partyGroup,
+    alt: "Families and friends gathered at FunBlast",
   },
   {
     key: "kitty",
@@ -40,8 +38,8 @@ const slides = [
     price: "₹399",
     priceNote: "per guest onwards",
     cta: "Book A Kitty Party",
-    img: kittyImg,
-    alt: "Group enjoying a kitty party at FunBlast",
+    img: photos.loungeGroup,
+    alt: "Friends gathered in the FunBlast lounge",
   },
   {
     key: "corporate",
@@ -58,8 +56,8 @@ const slides = [
     price: "₹599",
     priceNote: "per guest onwards",
     cta: "Plan A Team Day",
-    img: corporateImg,
-    alt: "Corporate team event at FunBlast trampoline park",
+    img: photos.friends,
+    alt: "A group of visitors enjoying a FunBlast outing",
   },
 ];
 
