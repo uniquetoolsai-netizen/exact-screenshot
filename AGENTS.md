@@ -11,4 +11,5 @@
 
 - Keep venue photography in a shared photo catalogue using the user's external image URLs when supplied, so reused pictures stay consistent across pages.
 - Preserve existing attraction photos when no uploaded image depicts that attraction, to avoid misrepresenting rides.
+- Categorize gallery photos in the shared photo catalogue and derive game filters and missing-category fallbacks from the attraction catalogue so all games stay represented.
 - Render shared branch hover/tap maps in a viewport-positioned body portal so scrolling rows and animated ancestors cannot clip them.

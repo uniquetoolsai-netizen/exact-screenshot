@@ -1,6 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-import { Awards } from "@/components/Awards";
 import { Gallery } from "@/components/Gallery";
 import { PageHero } from "@/components/PageHero";
 import { SiteFooter } from "@/components/SiteFooter";
@@ -13,7 +12,7 @@ export const Route = createFileRoute("/gallery")({
       {
         name: "description",
         content:
-          "See FunBlast in action — go karting, VR arena, bowling, trampoline park, snow park and kids zone photos from our Gujarat branches.",
+           "Browse FunBlast photos by game: arcade, bowling, go karting, VR, bumper cars, haunted house, kids play, outdoor adventure, snow park and trampoline park.",
       },
       { property: "og:title", content: "FunBlast Gallery" },
       {
@@ -38,7 +37,6 @@ function GalleryPage() {
         body="Real moments from real blast days across all eight FunBlast branches."
       />
       <Gallery />
-      <Awards />
       <SiteFooter />
     </div>
   );

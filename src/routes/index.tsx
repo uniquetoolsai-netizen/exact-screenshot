@@ -17,7 +17,6 @@ import { Counter, Reveal } from "@/components/Reveal";
 import { PartyCarousel } from "@/components/PartyCarousel";
 import { TiltCard } from "@/components/TiltCard";
 import { Gallery } from "@/components/Gallery";
-import { Awards } from "@/components/Awards";
 import { Testimonials } from "@/components/Testimonials";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
@@ -341,8 +340,6 @@ function Index() {
       <PartyCarousel />
 
       <Gallery />
-
-      <Awards />
 
       <Testimonials />
 
