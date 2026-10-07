@@ -1,5 +1,5 @@
 import { MapPin } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type Dispatch, type SetStateAction } from "react";
 import { createPortal } from "react-dom";
 
 import { BranchDetails } from "./BranchDetails";
@@ -12,7 +12,7 @@ interface BranchCardProps {
   city: string;
   variant: Variant;
   activeCity: string | null;
-  setActiveCity: (city: string | null) => void;
+  setActiveCity: Dispatch<SetStateAction<string | null>>;
   instanceId?: string;
 }
 
@@ -32,8 +32,11 @@ export function BranchCard({
     if (closeTimer.current) clearTimeout(closeTimer.current);
     setActiveCity(key);
   };
-  const close = () => setActiveCity(null);
+  // Only clear if this card is still the active one, so a stale timer from a
+  // previously hovered card can't close the card the cursor is on now.
+  const close = () => setActiveCity((current) => (current === key ? null : current));
   const scheduleClose = () => {
+    if (closeTimer.current) clearTimeout(closeTimer.current);
     closeTimer.current = setTimeout(close, 180);
   };
   const toggle = () => setActiveCity(isOpen ? null : key);
