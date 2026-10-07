@@ -1,35 +1,19 @@
-import friends from "@/assets/photos/DSC02674.JPG.jpg.asset.json";
-import wall from "@/assets/photos/DSC02697.JPG.jpg.asset.json";
-import arcadeGroup from "@/assets/photos/DSC02725.JPG.jpg.asset.json";
-import airHockey from "@/assets/photos/DSC04239.JPG.jpg.asset.json";
-import gamePrizes from "@/assets/photos/DSC04476.JPG.jpg.asset.json";
-import vrPlayers from "@/assets/photos/DSC04513.JPG.jpg.asset.json";
-import vrRide from "@/assets/photos/DSC04604.JPG.jpg.asset.json";
-import family from "@/assets/photos/DSC04906.JPG.jpg.asset.json";
-import partyGroup from "@/assets/photos/DSC04953.JPG.jpg.asset.json";
-import kidsRide from "@/assets/photos/DSC05028.JPG.jpg.asset.json";
-import youngPlayers from "@/assets/photos/_DSC3288.JPG.jpg.asset.json";
-import loungeFriends from "@/assets/photos/_DSC3389.JPG.jpg.asset.json";
-import racing from "@/assets/photos/_DSC3468.JPG.jpg.asset.json";
-import loungeGroup from "@/assets/photos/_DSC3513.JPG.jpg.asset.json";
-import haunted from "@/assets/photos/_DSC3632.JPG.jpg.asset.json";
-
 export const photos = {
-  friends: friends.url,
-  wall: wall.url,
-  arcadeGroup: arcadeGroup.url,
-  airHockey: airHockey.url,
-  gamePrizes: gamePrizes.url,
-  vrPlayers: vrPlayers.url,
-  vrRide: vrRide.url,
-  family: family.url,
-  partyGroup: partyGroup.url,
-  kidsRide: kidsRide.url,
-  youngPlayers: youngPlayers.url,
-  loungeFriends: loungeFriends.url,
-  racing: racing.url,
-  loungeGroup: loungeGroup.url,
-  haunted: haunted.url,
+  friends: "https://res.cloudinary.com/yor5st38/image/upload/v1791348186/DSC02674.JPG.jpg",
+  wall: "https://res.cloudinary.com/yor5st38/image/upload/v1791348194/DSC02697.JPG.jpg",
+  arcadeGroup: "https://res.cloudinary.com/yor5st38/image/upload/v1791348206/DSC02725.JPG.jpg",
+  airHockey: "https://res.cloudinary.com/yor5st38/image/upload/v1791348203/DSC04239.JPG.jpg",
+  gamePrizes: "https://res.cloudinary.com/yor5st38/image/upload/v1791348198/DSC04476.JPG.jpg",
+  vrPlayers: "https://res.cloudinary.com/yor5st38/image/upload/v1791348199/DSC04513.JPG.jpg",
+  vrRide: "https://res.cloudinary.com/yor5st38/image/upload/v1791348190/DSC04604.JPG.jpg",
+  family: "https://res.cloudinary.com/yor5st38/image/upload/v1791348211/DSC04906.JPG.jpg",
+  partyGroup: "https://res.cloudinary.com/yor5st38/image/upload/v1791348415/DSC04953.JPG.jpg",
+  kidsRide: "https://res.cloudinary.com/yor5st38/image/upload/v1791348416/DSC05028.JPG.jpg",
+  youngPlayers: "https://res.cloudinary.com/yor5st38/image/upload/v1791348416/_DSC3288.JPG.jpg",
+  loungeFriends: "https://res.cloudinary.com/yor5st38/image/upload/v1791348212/_DSC3389.JPG.jpg",
+  racing: "https://res.cloudinary.com/yor5st38/image/upload/v1791348207/_DSC3468.JPG.jpg",
+  loungeGroup: "https://res.cloudinary.com/yor5st38/image/upload/v1791348416/_DSC3513.JPG.jpg",
+  haunted: "https://res.cloudinary.com/yor5st38/image/upload/v1791348416/_DSC3632.JPG.jpg",
 };
 
 export const galleryPhotos = [
