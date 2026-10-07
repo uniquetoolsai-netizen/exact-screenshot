@@ -15,6 +15,7 @@ import { Route as BranchesRouteImport } from './routes/branches'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as PackagesRouteImport } from './routes/packages'
+import { Route as BranchesSlugRouteImport } from './routes/branches_.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -46,6 +47,11 @@ const PackagesRoute = PackagesRouteImport.update({
   path: '/packages',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BranchesSlugRoute = BranchesSlugRouteImport.update({
+  id: '/branches_/$slug',
+  path: '/branches/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -54,6 +60,7 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/gallery': typeof GalleryRoute
   '/packages': typeof PackagesRoute
+  '/branches/$slug': typeof BranchesSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -62,6 +69,7 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/gallery': typeof GalleryRoute
   '/packages': typeof PackagesRoute
+  '/branches/$slug': typeof BranchesSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -71,13 +79,27 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/gallery': typeof GalleryRoute
   '/packages': typeof PackagesRoute
+  '/branches_/$slug': typeof BranchesSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    '/' | '/attractions' | '/branches' | '/contact' | '/gallery' | '/packages'
+    | '/'
+    | '/attractions'
+    | '/branches'
+    | '/contact'
+    | '/gallery'
+    | '/packages'
+    | '/branches/$slug'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/attractions' | '/branches' | '/contact' | '/gallery' | '/packages'
+  to:
+    | '/'
+    | '/attractions'
+    | '/branches'
+    | '/contact'
+    | '/gallery'
+    | '/packages'
+    | '/branches/$slug'
   id:
     | '__root__'
     | '/'
@@ -86,6 +108,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/gallery'
     | '/packages'
+    | '/branches_/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -95,6 +118,7 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   GalleryRoute: typeof GalleryRoute
   PackagesRoute: typeof PackagesRoute
+  BranchesSlugRoute: typeof BranchesSlugRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -141,6 +165,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PackagesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/branches_/$slug': {
+      id: '/branches_/$slug'
+      path: '/branches/$slug'
+      fullPath: '/branches/$slug'
+      preLoaderRoute: typeof BranchesSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -151,6 +182,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   GalleryRoute: GalleryRoute,
   PackagesRoute: PackagesRoute,
+  BranchesSlugRoute: BranchesSlugRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
