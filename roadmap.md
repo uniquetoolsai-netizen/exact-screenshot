@@ -2,4 +2,4 @@
 - [x] Show all fifteen new photos in the shared gallery.
 - [x] Verify photo loading on home, attractions, branches, packages, and gallery pages.
 - [x] Switch all fifteen photos to the user's Cloudinary URLs.
-- [ ] Remove superseded project photo references and verify Cloudinary loading.
+- [x] Remove superseded project photo references and verify Cloudinary loading.
