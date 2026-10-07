@@ -501,6 +501,7 @@
 
 .gallery-track {
   display: flex;
+  padding-block: 1rem;
   width: max-content;
   animation: marquee 48s linear infinite;
 }

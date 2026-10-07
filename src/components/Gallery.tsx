@@ -13,7 +13,33 @@ const gamePhotos = [
     .map(({ name, img }) => ({ img, label: name, category: name })),
 ];
 
-export function Gallery({ showHeading = true }: { showHeading?: boolean }) {
+function GallerySlider() {
+  const half = Math.ceil(gamePhotos.length / 2);
+  const rows = [gamePhotos.slice(0, half), gamePhotos.slice(half)];
+  return (
+    <div className="gallery-slider mt-10 space-y-5" aria-label="FunBlast photo slider">
+      {rows.map((row, r) => (
+        <div key={r} className="gallery-row overflow-hidden">
+          <div className={`gallery-track gap-5 ${r ? "gallery-track-reverse" : ""}`}>
+            {[...row, ...row].map(({ img, label }, i) => (
+              <figure
+                key={`${label}-${i}`}
+                tabIndex={i < row.length ? 0 : -1}
+                aria-hidden={i >= row.length}
+                className="gallery-photo group relative mr-5 h-56 w-80 shrink-0 overflow-hidden rounded-2xl border border-border bg-card transition-transform duration-500 hover:z-10 hover:scale-105 focus:scale-105 md:h-72 md:w-[26rem]"
+              >
+                <img src={img} alt={`${label} at FunBlast gaming zone`} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-background to-transparent px-4 pb-3 pt-10 font-display text-sm tracking-wide uppercase">{label}</figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+export function Gallery({ showHeading = true, variant = "grid" }: { showHeading?: boolean; variant?: "grid" | "slider" }) {
   const [selectedGame, setSelectedGame] = useState("All");
   const visiblePhotos = selectedGame === "All"
     ? gamePhotos
@@ -32,7 +58,7 @@ export function Gallery({ showHeading = true }: { showHeading?: boolean }) {
         </Reveal>
       ) : null}
 
-
+      {variant === "slider" ? <GallerySlider /> : (<>
       <div role="group" aria-label="Filter gallery by game" className="mt-8 flex flex-wrap gap-2 border-b border-border pb-6">
         <Button variant={selectedGame === "All" ? "default" : "outline"} aria-pressed={selectedGame === "All"} onClick={() => setSelectedGame("All")}>
           <LayoutGrid /> All
@@ -59,6 +85,7 @@ export function Gallery({ showHeading = true }: { showHeading?: boolean }) {
           </figure>
         ))}
       </div>
+      </>)}
     </section>
   );
 }

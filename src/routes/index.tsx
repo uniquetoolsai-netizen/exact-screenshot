@@ -339,7 +339,7 @@ function Index() {
       {/* ── Party carousel: swipeable ticket stubs ── */}
       <PartyCarousel />
 
-      <Gallery />
+      <Gallery variant="slider" />
 
       <Testimonials />
 
