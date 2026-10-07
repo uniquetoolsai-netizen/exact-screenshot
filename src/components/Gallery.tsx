@@ -13,7 +13,7 @@ const gamePhotos = [
     .map(({ name, img }) => ({ img, label: name, category: name })),
 ];
 
-export function Gallery() {
+export function Gallery({ showHeading = true }: { showHeading?: boolean }) {
   const [selectedGame, setSelectedGame] = useState("All");
   const visiblePhotos = selectedGame === "All"
     ? gamePhotos
@@ -21,14 +21,17 @@ export function Gallery() {
 
   return (
     <section id="gallery" className="mx-auto max-w-[112rem] px-5 md:px-10 pb-24">
-      <Reveal>
-        <span className="pill glass text-primary">
-          <Camera className="h-3.5 w-3.5" /> Gallery
-        </span>
-        <h2 className="mt-4 max-w-2xl font-display text-5xl leading-[0.92] md:text-7xl">
-          Snapshots from the <span className="text-blast">loud side</span>
-        </h2>
-      </Reveal>
+      {showHeading ? (
+        <Reveal>
+          <span className="pill glass text-primary">
+            <Camera className="h-3.5 w-3.5" /> Gallery
+          </span>
+          <h2 className="mt-4 max-w-2xl font-display text-5xl leading-[0.92] md:text-7xl">
+            Snapshots from the <span className="text-blast">loud side</span>
+          </h2>
+        </Reveal>
+      ) : null}
+
 
       <div role="group" aria-label="Filter gallery by game" className="mt-8 flex flex-wrap gap-2 border-b border-border pb-6">
         <Button variant={selectedGame === "All" ? "default" : "outline"} aria-pressed={selectedGame === "All"} onClick={() => setSelectedGame("All")}>
@@ -42,9 +45,10 @@ export function Gallery() {
       </div>
 
       <div aria-live="polite" aria-atomic="true" className="mt-6 flex items-center justify-between gap-4">
-        <h3 className="font-display text-xl">{selectedGame === "All" ? "All moments" : selectedGame}</h3>
         <span className="text-sm text-muted-foreground">{visiblePhotos.length} {visiblePhotos.length === 1 ? "photo" : "photos"}</span>
+        <span className="text-sm text-muted-foreground">{selectedGame === "All" ? "All games" : selectedGame}</span>
       </div>
+
       <div className="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4" aria-label="FunBlast photo gallery">
         {visiblePhotos.map(({ img, label }) => (
           <figure key={label} className="min-w-0 overflow-hidden rounded-lg border border-border bg-card">
