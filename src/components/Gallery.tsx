@@ -17,20 +17,17 @@ export function Gallery() {
         </h2>
       </Reveal>
 
-      <div className="mt-12 grid auto-rows-[11rem] grid-cols-2 gap-4 sm:auto-rows-[13rem] sm:grid-cols-4">
-        {galleryPhotos.map(({ img, label, span }, i) => (
-          <Reveal key={label} from="scale" delay={i * 60} className={`h-full ${span}`}>
-            <TiltCard className="group relative h-full w-full overflow-hidden rounded-3xl border border-border/60">
+      <div className="mt-12 columns-2 gap-4 sm:columns-3 lg:columns-4">
+        {galleryPhotos.map(({ img, label }, i) => (
+          <Reveal key={label} from="scale" delay={i * 60} className="mb-4 break-inside-avoid">
+            <TiltCard className="group relative w-full overflow-hidden rounded-3xl border border-border/60 bg-card">
               <img
                 src={img}
                 alt={`${label} at FunBlast gaming zone`}
                 loading="lazy"
-                width={800}
-                height={800}
-                className="absolute inset-0 h-full w-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:saturate-150"
+                className="block h-auto w-full transition-[filter] duration-700 group-hover:saturate-150"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/10 to-transparent opacity-80 transition-opacity duration-500 group-hover:opacity-100" />
-              <span className="absolute bottom-4 left-4 font-sans text-[0.62rem] tracking-[0.24em] text-foreground uppercase">
+              <span className="block px-4 py-3 font-sans text-[0.62rem] text-foreground uppercase">
                 {label}
               </span>
             </TiltCard>
