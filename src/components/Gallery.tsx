@@ -3,29 +3,7 @@ import { Camera } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 import { TiltCard } from "@/components/TiltCard";
 
-import arcade from "@/assets/rides/arcade.jpg";
-import bowling from "@/assets/rides/bowling.png";
-import karting from "@/assets/rides/karting.png";
-import vr from "@/assets/rides/vr.png";
-import bumper from "@/assets/rides/bumper.jpg";
-import snow from "@/assets/rides/snow.jpg";
-import trampoline from "@/assets/rides/trampoline.jpg";
-import kids from "@/assets/rides/kids.jpg";
-import haunted from "@/assets/rides/haunted.jpeg";
-import outdoor from "@/assets/rides/outdoor.jpg";
-
-const shots = [
-  { img: karting, label: "Race day", span: "sm:col-span-2 sm:row-span-2" },
-  { img: vr, label: "VR arena", span: "" },
-  { img: bowling, label: "Strike zone", span: "" },
-  { img: trampoline, label: "Air time", span: "sm:col-span-2" },
-  { img: arcade, label: "Coin storm", span: "" },
-  { img: bumper, label: "Bumper chaos", span: "" },
-  { img: snow, label: "Snow park", span: "sm:col-span-2" },
-  { img: kids, label: "Tiny explorers", span: "" },
-  { img: haunted, label: "Dark corridors", span: "" },
-  { img: outdoor, label: "Open air", span: "sm:col-span-2" },
-];
+import { galleryPhotos } from "@/data/photos";
 
 export function Gallery() {
   return (
@@ -40,7 +18,7 @@ export function Gallery() {
       </Reveal>
 
       <div className="mt-12 grid auto-rows-[11rem] grid-cols-2 gap-4 sm:auto-rows-[13rem] sm:grid-cols-4">
-        {shots.map(({ img, label, span }, i) => (
+        {galleryPhotos.map(({ img, label, span }, i) => (
           <Reveal key={label} from="scale" delay={i * 60} className={`h-full ${span}`}>
             <TiltCard className="group relative h-full w-full overflow-hidden rounded-3xl border border-border/60">
               <img

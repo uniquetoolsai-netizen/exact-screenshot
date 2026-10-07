@@ -2,7 +2,7 @@ import { MapPin } from "lucide-react";
 
 import { BranchDetails } from "./BranchDetails";
 import { BranchMap } from "./BranchMap";
-import branchImg from "@/assets/branch.jpg";
+import { photos } from "@/data/photos";
 
 type Variant = "home" | "page";
 
@@ -51,8 +51,8 @@ export function BranchCard({
 
       <article className="neon-ring relative aspect-square w-full overflow-hidden rounded-3xl">
         <img
-          src={branchImg}
-          alt={`FunBlast branch in ${city}`}
+          src={photos.arcadeGroup}
+          alt="Visitors enjoying FunBlast arcade games"
           loading="lazy"
           width={800}
           height={600}
