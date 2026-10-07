@@ -13,6 +13,7 @@ interface BranchCardProps {
   variant: Variant;
   activeCity: string | null;
   setActiveCity: (city: string | null) => void;
+  instanceId?: string;
 }
 
 export function BranchCard({
@@ -20,20 +21,22 @@ export function BranchCard({
   variant,
   activeCity,
   setActiveCity,
+  instanceId,
 }: BranchCardProps) {
-  const isOpen = activeCity === city;
+  const key = instanceId ?? city;
+  const isOpen = activeCity === key;
   const cardRef = useRef<HTMLDivElement>(null);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [position, setPosition] = useState<{ left: number; top: number; width: number; height: number } | null>(null);
   const open = () => {
     if (closeTimer.current) clearTimeout(closeTimer.current);
-    setActiveCity(city);
+    setActiveCity(key);
   };
   const close = () => setActiveCity(null);
   const scheduleClose = () => {
     closeTimer.current = setTimeout(close, 180);
   };
-  const toggle = () => setActiveCity(isOpen ? null : city);
+  const toggle = () => setActiveCity(isOpen ? null : key);
 
   const isHome = variant === "home";
 
@@ -46,8 +49,8 @@ export function BranchCard({
     const update = () => {
       const rect = cardRef.current?.getBoundingClientRect();
       if (rect) {
-        const width = Math.min(352, window.innerWidth - 32);
-        const height = Math.min(264, window.innerHeight - 160);
+        const width = Math.min(420, window.innerWidth - 32);
+        const height = Math.min(320, window.innerHeight - 180);
         const left = Math.max(16, Math.min(rect.left + rect.width / 2 - width / 2, window.innerWidth - width - 16));
         const above = rect.top - height - 16;
         const top = above >= 128 ? above : Math.max(128, Math.min(rect.bottom + 16, window.innerHeight - height - 16));

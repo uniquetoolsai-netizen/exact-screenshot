@@ -21,7 +21,6 @@ export function BranchMap({ city }: { city: string }) {
           key={city}
           title={`Map of FunBlast ${city}`}
           src={src}
-          loading="lazy"
           className="h-full w-full border-0"
           allowFullScreen
           referrerPolicy="no-referrer-when-downgrade"
