@@ -13,7 +13,7 @@ const gamePhotos = [
     .map(({ name, img }) => ({ img, label: name, category: name })),
 ];
 
-export function Gallery() {
+export function Gallery({ showHeading = true }: { showHeading?: boolean }) {
   const [selectedGame, setSelectedGame] = useState("All");
   const visiblePhotos = selectedGame === "All"
     ? gamePhotos
@@ -21,14 +21,17 @@ export function Gallery() {
 
   return (
     <section id="gallery" className="mx-auto max-w-[112rem] px-5 md:px-10 pb-24">
-      <Reveal>
-        <span className="pill glass text-primary">
-          <Camera className="h-3.5 w-3.5" /> Gallery
-        </span>
-        <h2 className="mt-4 max-w-2xl font-display text-5xl leading-[0.92] md:text-7xl">
-          Snapshots from the <span className="text-blast">loud side</span>
-        </h2>
-      </Reveal>
+      {showHeading ? (
+        <Reveal>
+          <span className="pill glass text-primary">
+            <Camera className="h-3.5 w-3.5" /> Gallery
+          </span>
+          <h2 className="mt-4 max-w-2xl font-display text-5xl leading-[0.92] md:text-7xl">
+            Snapshots from the <span className="text-blast">loud side</span>
+          </h2>
+        </Reveal>
+      ) : null}
+
 
       <div role="group" aria-label="Filter gallery by game" className="mt-8 flex flex-wrap gap-2 border-b border-border pb-6">
         <Button variant={selectedGame === "All" ? "default" : "outline"} aria-pressed={selectedGame === "All"} onClick={() => setSelectedGame("All")}>

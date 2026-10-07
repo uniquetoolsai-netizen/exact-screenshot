@@ -36,7 +36,7 @@ function GalleryPage() {
         accent="loud side"
         body="Real moments from real blast days across all eight FunBlast branches."
       />
-      <Gallery />
+      <Gallery showHeading={false} />
       <SiteFooter />
     </div>
   );
