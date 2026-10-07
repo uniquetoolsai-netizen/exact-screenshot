@@ -1,5 +1,6 @@
 import { ArrowRight, Star } from "lucide-react";
 
+import { BranchCallDialog } from "@/components/BranchCallDialog";
 import { Reveal } from "@/components/Reveal";
 
 type PartyBannerProps = {
@@ -48,9 +49,14 @@ export function PartyBanner({
                 </li>
               ))}
             </ul>
-            <a href="#contact" className="btn-red mt-9 rounded-full px-6 py-3">
-              {cta} <ArrowRight className="h-4 w-4" />
-            </a>
+            <BranchCallDialog
+              title={cta}
+              trigger={
+                <button type="button" className="btn-red mt-9 rounded-full px-6 py-3">
+                  {cta} <ArrowRight className="h-4 w-4" />
+                </button>
+              }
+            />
           </div>
         </div>
 
