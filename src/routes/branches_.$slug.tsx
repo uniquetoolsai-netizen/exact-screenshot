@@ -77,14 +77,6 @@ function BranchPage() {
               <h1 className="mt-3 font-display text-4xl leading-[0.9] md:text-8xl">
                 {city.replace("Ahmedabad ", "")} <span className="text-blast">{city.startsWith("Ahmedabad") ? "Ahmedabad" : "Blast Zone"}</span>
               </h1>
-              {info && (
-                <div className="mt-4 hidden flex-wrap gap-3 md:flex">
-                  <a href={info.phoneHref} className="pill glass inline-flex items-center gap-2"><Phone className="h-4 w-4 text-primary" />{info.phone}</a>
-                  <a href={info.instagram} target="_blank" rel="noreferrer" className="pill glass inline-flex items-center gap-2"><Instagram className="h-4 w-4 text-primary" />Instagram</a>
-                  <a href={info.youtube} target="_blank" rel="noreferrer" className="pill glass inline-flex items-center gap-2"><Youtube className="h-4 w-4 text-primary" />YouTube</a>
-                  <a href={info.maps} target="_blank" rel="noreferrer" className="pill glass inline-flex items-center gap-2"><MapPin className="h-4 w-4 text-primary" />Directions</a>
-                </div>
-              )}
             </div>
           </div>
         </div>
