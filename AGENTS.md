@@ -9,5 +9,5 @@
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
 
-- Keep uploaded venue photography in a shared photo catalogue backed by CDN asset pointers so reused pictures stay consistent across pages.
+- Keep venue photography in a shared photo catalogue using the user's external image URLs when supplied, so reused pictures stay consistent across pages.
 - Preserve existing attraction photos when no uploaded image depicts that attraction, to avoid misrepresenting rides.
