@@ -1,3 +1,3 @@
 - [x] Add uploaded photos and replace matching venue, attraction, and celebration photos.
 - [x] Show all fifteen new photos in the shared gallery.
-- [ ] Verify photo loading on home, attractions, branches, packages, and gallery pages.
+- [x] Verify photo loading on home, attractions, branches, packages, and gallery pages.
