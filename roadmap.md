@@ -3,3 +3,6 @@
 - [x] Verify photo loading on home, attractions, branches, packages, and gallery pages.
 - [x] Switch all fifteen photos to the user's Cloudinary URLs.
 - [x] Remove superseded project photo references and verify Cloudinary loading.
+- [x] Remove awards from home and gallery.
+- [x] Replace moving gallery with a static game-filtered grid and existing game-photo fallbacks.
+- [x] Verify every game filter and uncropped photos.
