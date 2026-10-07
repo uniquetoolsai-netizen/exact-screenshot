@@ -7,6 +7,10 @@ import { BRANCH_DETAILS } from "@/components/BranchDetails";
 import logoAsset from "@/assets/funblast-logo.webp";
 import { branchCities, navLinks } from "@/data/site";
 
+import { photos } from "@/data/photos";
+
+const megaPhotos = [photos.arcadeGroup, photos.airHockey, photos.vrPlayers, photos.racing, photos.kidsRide, photos.gamePrizes, photos.haunted, photos.vrRide];
+
 const slugOf = (city: string) => city.toLowerCase().replace(/\s+/g, "-");
 
 export function Logo({ compact = false }: { compact?: boolean }) {
@@ -40,28 +44,42 @@ export function SiteHeader() {
                 <Link to={to} activeProps={{ className: "text-primary" }} className="nav-link inline-flex items-center gap-1">
                   {label} <ChevronDown className="h-3.5 w-3.5 transition-transform group-hover/mega:rotate-180" />
                 </Link>
-                <div className="invisible absolute left-1/2 top-full z-50 w-[44rem] -translate-x-1/2 pt-5 opacity-0 transition-all duration-200 group-hover/mega:visible group-hover/mega:opacity-100 group-focus-within/mega:visible group-focus-within/mega:opacity-100">
-                  <div className="glass-strong rounded-2xl border border-primary/20 p-5 shadow-2xl">
-                    <div className="mb-3 flex items-center justify-between">
-                      <p className="font-display text-sm tracking-wide text-primary">Our Branches</p>
-                      <Link to="/branches" className="text-xs text-muted-foreground hover:text-primary">View all →</Link>
+                <div className="invisible absolute left-1/2 top-full z-50 w-[min(60rem,calc(100vw-3rem))] -translate-x-1/2 translate-y-3 pt-5 opacity-0 transition-all duration-300 group-hover/mega:visible group-hover/mega:translate-y-0 group-hover/mega:opacity-100 group-focus-within/mega:visible group-focus-within/mega:translate-y-0 group-focus-within/mega:opacity-100">
+                  <div className="glass-strong neon-ring grid grid-cols-[15rem_1fr] gap-5 overflow-hidden rounded-3xl p-4 shadow-2xl">
+                    <div className="relative flex flex-col justify-between overflow-hidden rounded-2xl p-5">
+                      <img src={photos.partyGroup} alt="" className="absolute inset-0 h-full w-full object-cover" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-background/20" />
+                      <span className="pill glass relative self-start text-primary">8 Zones</span>
+                      <div className="relative">
+                        <p className="font-display text-3xl leading-[0.9]">Pick your <span className="text-blast">blast zone</span></p>
+                        <p className="mt-2 text-xs text-muted-foreground">Across Gujarat — find the one closest to you.</p>
+                        <Link to="/branches" className="btn-blast mt-4 rounded-full text-xs">View all branches</Link>
+                      </div>
                     </div>
-                    <div className="grid grid-cols-2 gap-2">
-                      {branchCities.map((city) => (
-                        <Link
-                          key={city}
-                          to="/branches/$slug"
-                          params={{ slug: slugOf(city) }}
-                          activeProps={{ className: "bg-primary/15" }}
-                          className="flex items-start gap-3 rounded-xl p-3 transition-colors hover:bg-foreground/10"
-                        >
-                          <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-                          <span>
-                            <span className="block font-display text-sm tracking-wide">{city}</span>
-                            <span className="block text-xs text-muted-foreground">{BRANCH_DETAILS[city]?.address}</span>
-                          </span>
-                        </Link>
-                      ))}
+                    <div className="grid grid-cols-4 gap-3">
+                      {branchCities.map((city, i) => {
+                        const short = city.replace("Ahmedabad ", "");
+                        const isAmd = city.startsWith("Ahmedabad");
+                        return (
+                          <Link
+                            key={city}
+                            to="/branches/$slug"
+                            params={{ slug: slugOf(city) }}
+                            className="group/card relative aspect-[4/5] overflow-hidden rounded-2xl border border-foreground/10 transition-all duration-300 hover:-translate-y-1 hover:border-primary"
+                          >
+                            <img src={megaPhotos[i % megaPhotos.length]} alt="" loading="lazy" className="absolute inset-0 h-full w-full object-cover opacity-70 transition-all duration-500 group-hover/card:scale-110 group-hover/card:opacity-100" />
+                            <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
+                            <span className="absolute right-2 top-2 font-display text-lg text-primary/80">{String(i + 1).padStart(2, "0")}</span>
+                            <div className="absolute inset-x-0 bottom-0 p-3">
+                              {isAmd && <p className="text-[0.6rem] uppercase tracking-[0.2em] text-primary">Ahmedabad</p>}
+                              <p className="font-display text-base leading-tight">{short}</p>
+                              <p className="mt-1 flex max-h-0 items-center gap-1 overflow-hidden text-[0.65rem] text-muted-foreground transition-all duration-300 group-hover/card:max-h-10">
+                                <MapPin className="h-3 w-3 shrink-0 text-primary" /> {BRANCH_DETAILS[city]?.phone}
+                              </p>
+                            </div>
+                          </Link>
+                        );
+                      })}
                     </div>
                   </div>
                 </div>
