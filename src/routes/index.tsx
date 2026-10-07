@@ -387,6 +387,7 @@ function Index() {
                   <div key={`${dup}-${city}`} className="mx-2.5 w-72 shrink-0 lg:w-80">
                     <BranchCard
                       city={city}
+                      instanceId={`${dup}-${city}`}
                       variant="home"
                       activeCity={activeCity}
                       setActiveCity={setActiveCity}
