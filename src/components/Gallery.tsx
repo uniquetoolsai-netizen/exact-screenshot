@@ -45,9 +45,10 @@ export function Gallery({ showHeading = true }: { showHeading?: boolean }) {
       </div>
 
       <div aria-live="polite" aria-atomic="true" className="mt-6 flex items-center justify-between gap-4">
-        <h3 className="font-display text-xl">{selectedGame === "All" ? "All moments" : selectedGame}</h3>
         <span className="text-sm text-muted-foreground">{visiblePhotos.length} {visiblePhotos.length === 1 ? "photo" : "photos"}</span>
+        <span className="text-sm text-muted-foreground">{selectedGame === "All" ? "All games" : selectedGame}</span>
       </div>
+
       <div className="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4" aria-label="FunBlast photo gallery">
         {visiblePhotos.map(({ img, label }) => (
           <figure key={label} className="min-w-0 overflow-hidden rounded-lg border border-border bg-card">
