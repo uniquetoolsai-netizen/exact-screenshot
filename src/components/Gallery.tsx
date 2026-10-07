@@ -1,7 +1,6 @@
 import { Camera } from "lucide-react";
 
 import { Reveal } from "@/components/Reveal";
-import { TiltCard } from "@/components/TiltCard";
 
 import { galleryPhotos } from "@/data/photos";
 
@@ -17,21 +16,35 @@ export function Gallery() {
         </h2>
       </Reveal>
 
-      <div className="mt-12 columns-2 gap-4 sm:columns-3 lg:columns-4">
-        {galleryPhotos.map(({ img, label }, i) => (
-          <Reveal key={label} from="scale" delay={i * 60} className="mb-4 break-inside-avoid">
-            <TiltCard className="group relative w-full overflow-hidden rounded-3xl border border-border/60 bg-card">
-              <img
-                src={img}
-                alt={`${label} at FunBlast gaming zone`}
-                loading="lazy"
-                className="block h-auto w-full transition-[filter] duration-700 group-hover:saturate-150"
-              />
-              <span className="block px-4 py-3 font-sans text-[0.62rem] text-foreground uppercase">
-                {label}
-              </span>
-            </TiltCard>
-          </Reveal>
+      <div className="gallery-slider mt-8 -mx-5 overflow-hidden md:-mx-10" aria-label="FunBlast photo gallery">
+        {[galleryPhotos.slice(0, 8), galleryPhotos.slice(8)].map((row, rowIndex) => (
+          <div key={rowIndex} className="gallery-row py-8">
+            <div className={`gallery-track ${rowIndex === 1 ? "gallery-track-reverse" : ""}`}>
+              {[0, 1].map((copy) => (
+                <div key={copy} className="flex shrink-0 gap-6 pr-6" aria-hidden={copy === 1 ? true : undefined}>
+                  {row.map(({ img, label }) => (
+                    <figure
+                      key={label}
+                      tabIndex={copy === 0 ? 0 : -1}
+                      className="gallery-photo relative w-64 shrink-0 rounded-lg border border-border bg-card transition-transform duration-300 hover:z-10 hover:scale-110 hover:border-primary focus:z-10 focus:scale-110 focus:border-primary focus:outline-none md:w-80"
+                    >
+                      <div className="aspect-[4/3] overflow-hidden rounded-t-lg">
+                        <img
+                          src={img}
+                          alt={copy === 0 ? `${label} at FunBlast gaming zone` : ""}
+                          loading="lazy"
+                          className="h-full w-full object-contain"
+                        />
+                      </div>
+                      <figcaption className="truncate px-4 py-3 font-sans text-xs text-foreground uppercase">
+                        {label}
+                      </figcaption>
+                    </figure>
+                  ))}
+                </div>
+              ))}
+            </div>
+          </div>
         ))}
       </div>
     </section>
