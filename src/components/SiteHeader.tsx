@@ -8,7 +8,7 @@ import { navLinks } from "@/data/site";
 export function Logo({ compact = false }: { compact?: boolean }) {
   return (
     <Link to="/" className="group inline-flex min-w-0 items-center gap-3">
-      <span className="shrink-0 rounded-2xl border border-foreground/25 bg-foreground/5 p-1.5 shadow-lg backdrop-blur-sm transition-colors duration-300 group-hover:border-foreground/50">
+      <span className="shrink-0 rounded-2xl border-2 border-foreground bg-foreground/10 p-1.5 shadow-lg ring-4 ring-foreground/20 backdrop-blur-sm transition-all duration-300 group-hover:bg-foreground/15 group-hover:ring-foreground/35">
         <img
           src={logoAsset}
           alt="FunBlast Gaming Zone logo"
