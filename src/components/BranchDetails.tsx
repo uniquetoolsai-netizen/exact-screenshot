@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { Instagram, MapPin, Phone, X, Youtube } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 import { BranchMap } from "./BranchMap";
 
 type BranchInfo = {
@@ -133,6 +134,13 @@ export function BranchDetails({
             <Phone className="h-3.5 w-3.5 text-primary" />
             {info.phone}
           </a>
+          <Link
+            to="/branches/$slug"
+            params={{ slug: city.toLowerCase().replace(/\s+/g, "-") }}
+            className="mt-2 inline-block text-xs font-semibold text-primary underline-offset-2 hover:underline"
+          >
+            Explore branch →
+          </Link>
         </div>
 
         <div className="flex items-center justify-between gap-2">
