@@ -34,7 +34,6 @@ function GallerySlider() {
                 className="gallery-photo group relative mr-5 h-56 w-80 shrink-0 overflow-hidden rounded-2xl border border-border bg-card transition-transform duration-500 hover:z-10 hover:scale-105 focus:scale-105 md:h-72 md:w-[26rem]"
               >
                 <img src={img} alt={`${label} at FunBlast gaming zone`} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" />
-                <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-background to-transparent px-4 pb-3 pt-10 font-display text-sm tracking-wide uppercase">{label}</figcaption>
               </figure>
             ))}
           </div>
@@ -86,7 +85,6 @@ export function Gallery({ showHeading = true, variant = "grid" }: { showHeading?
             <div className="aspect-[4/3]">
               <img src={img} alt={`${label} at FunBlast gaming zone`} loading="lazy" className="h-full w-full object-contain" />
             </div>
-            <figcaption className="border-t border-border px-4 py-3 font-sans text-sm text-foreground uppercase">{label}</figcaption>
           </figure>
         ))}
       </div>
