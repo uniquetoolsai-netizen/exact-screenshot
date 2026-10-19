@@ -35,7 +35,7 @@ function AttractionsPage() {
       <SiteHeader />
       <PageHero
         eyebrow="Attractions"
-        title="Ten ways to"
+        title="Endless ways to"
         accent="lose track of time"
         body="From free-roam VR missions to real snow and a trampoline sky — every FunBlast branch is packed with games for every age."
       />
