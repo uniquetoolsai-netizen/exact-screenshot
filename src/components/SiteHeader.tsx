@@ -1,3 +1,4 @@
+import { branchPhoto } from "@/data/site";
 import { useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { ChevronDown, MapPin, Menu, PartyPopper, X } from "lucide-react";
@@ -67,7 +68,7 @@ export function SiteHeader() {
                             params={{ slug: slugOf(city) }}
                             className="group/card relative aspect-[4/5] overflow-hidden rounded-2xl border border-foreground/10 transition-all duration-300 hover:-translate-y-1 hover:border-primary"
                           >
-                            <img src={megaPhotos[i % megaPhotos.length]} alt="" loading="lazy" className="absolute inset-0 h-full w-full object-cover opacity-70 transition-all duration-500 group-hover/card:scale-110 group-hover/card:opacity-100" />
+                            <img src={branchPhoto(city)} alt="" loading="lazy" className="absolute inset-0 h-full w-full object-cover opacity-70 transition-all duration-500 group-hover/card:scale-110 group-hover/card:opacity-100" />
                             <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
                             <span className="absolute right-2 top-2 font-display text-lg text-primary/80">{String(i + 1).padStart(2, "0")}</span>
                             <div className="absolute inset-x-0 bottom-0 p-3">
