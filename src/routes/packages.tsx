@@ -14,7 +14,7 @@ export const Route = createFileRoute("/packages")({
       {
         name: "description",
         content:
-          "Birthday parties, kitty parties, school trips and corporate outings at FunBlast — food, decor, host and unlimited games from ₹399 per guest.",
+          "Birthday parties, kitty parties, school trips and corporate outings at FunBlast — food, decor, host and unlimited games.",
       },
       { property: "og:title", content: "FunBlast Party Packages" },
       {
@@ -68,7 +68,7 @@ function PackagesPage() {
 
       <section className="mx-auto max-w-[112rem] px-5 pb-16 md:px-10">
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {packs.map(({ Icon, title, price, body }, i) => (
+          {packs.map(({ Icon, title, body }, i) => (
             <Reveal key={title} from="up" delay={i * 70}>
               <div className="glass flex h-full flex-col rounded-3xl p-6">
                 <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary">
@@ -76,10 +76,6 @@ function PackagesPage() {
                 </span>
                 <h2 className="mt-4 font-display text-2xl">{title}</h2>
                 <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">{body}</p>
-                <p className="mt-5 font-display text-3xl text-primary">{price}</p>
-                <p className="font-sans text-[0.55rem] tracking-[0.22em] text-muted-foreground uppercase">
-                  per guest onwards
-                </p>
               </div>
             </Reveal>
           ))}
