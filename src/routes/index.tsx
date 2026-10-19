@@ -145,7 +145,7 @@ function Index() {
           <Reveal>
             <span className="pill glass text-primary">Attractions</span>
             <h2 className="mt-4 max-w-xl font-display text-5xl leading-[0.92] md:text-7xl">
-              Ten ways to <span className="text-blast">lose track of time</span>
+              Endless ways to <span className="text-blast">lose track of time</span>
             </h2>
           </Reveal>
           <Reveal from="right">
