@@ -10,7 +10,7 @@ const slides = [
   { src: party.url, alt: "Host your next party at FunBlast — kitty, birthday and corporate parties" },
   { src: school.url, alt: "School outing at FunBlast — book your school's slot" },
   { src: branches.url, alt: "Gujarat's biggest gamezone chain — 8 branches across Gujarat" },
-  { src: extra.url, alt: "FunBlast gaming zone" },
+  { src: extra.url, alt: "Play. Blast. Repeat — games and activities across 8 FunBlast branches in 5 cities" },
 ];
 
 export function HeroSlider() {
