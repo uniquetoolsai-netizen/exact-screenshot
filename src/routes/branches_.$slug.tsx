@@ -7,7 +7,7 @@ import { Reveal } from "@/components/Reveal";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { photos } from "@/data/photos";
-import { branchCities, gamesForBranch } from "@/data/site";
+import { branchCities, branchPhoto, gamesForBranch } from "@/data/site";
 
 // Placeholder hero video until the branch's own 16:9 video is supplied.
 const HERO_VIDEO = "https://cdn.pixabay.com/video/2020/05/25/40130-424930032_large.mp4";
@@ -65,7 +65,7 @@ function BranchPage() {
           <div className="neon-ring relative aspect-video w-full overflow-hidden rounded-3xl">
             <video
               src={HERO_VIDEO}
-              poster={photos.arcadeGroup}
+              poster={branchPhoto(city)}
               autoPlay
               muted
               loop

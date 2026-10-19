@@ -1,3 +1,4 @@
+import { branchPhoto } from "@/data/site";
 import { MapPin } from "lucide-react";
 import { useEffect, useRef, useState, type Dispatch, type SetStateAction } from "react";
 import { createPortal } from "react-dom";
@@ -110,7 +111,7 @@ export function BranchCard({
 
       <article className="neon-ring relative aspect-square w-full overflow-hidden rounded-3xl">
         <img
-          src={photos.arcadeGroup}
+          src={branchPhoto(city)}
           alt="Visitors enjoying FunBlast arcade games"
           loading="lazy"
           width={800}

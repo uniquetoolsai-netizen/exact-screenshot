@@ -69,3 +69,17 @@ export const branchCities = [
   "Vadodara",
   "Mehsana",
 ];
+
+
+/** Branch thumbnail photos (Mehsana has none yet, so it uses a venue photo). */
+export const branchPhotos: Record<string, string> = {
+  "Ahmedabad SBR": "https://res.cloudinary.com/o6hhnpet/image/upload/v1792450681/SBR_outside.jpg",
+  "Ahmedabad SG Highway": "https://res.cloudinary.com/o6hhnpet/image/upload/v1792450557/Gota.jpg",
+  "Ahmedabad Ranip": "https://res.cloudinary.com/o6hhnpet/image/upload/v1792450558/RANIP_YT.jpg",
+  "Ahmedabad Nikol": "https://res.cloudinary.com/o6hhnpet/image/upload/v1792450559/nikol.jpg",
+  Rajkot: "https://res.cloudinary.com/o6hhnpet/image/upload/v1792450560/Rajkot.jpg",
+  Gandhidham: "https://res.cloudinary.com/o6hhnpet/image/upload/v1792450556/GANDHIDHAM.jpg",
+  Vadodara: "https://res.cloudinary.com/o6hhnpet/image/upload/v1792450556/Baroda.jpg",
+};
+
+export const branchPhoto = (city: string) => branchPhotos[city] ?? photos.arcadeGroup;
