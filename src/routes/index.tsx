@@ -8,7 +8,6 @@ import {
   ShieldCheck,
   Sparkles,
   Star,
-  Ticket,
   Users,
   Zap,
 } from "lucide-react";
