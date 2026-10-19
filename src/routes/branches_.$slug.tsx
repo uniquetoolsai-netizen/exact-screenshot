@@ -7,7 +7,7 @@ import { Reveal } from "@/components/Reveal";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { photos } from "@/data/photos";
-import { attractions, branchCities } from "@/data/site";
+import { branchCities, gamesForBranch } from "@/data/site";
 
 // Placeholder hero video until the branch's own 16:9 video is supplied.
 const HERO_VIDEO = "https://cdn.pixabay.com/video/2020/05/25/40130-424930032_large.mp4";
@@ -50,6 +50,7 @@ export const Route = createFileRoute("/branches_/$slug")({
 function BranchPage() {
   const { city } = Route.useLoaderData();
   const info = BRANCH_DETAILS[city];
+  const games = gamesForBranch(city);
 
   return (
     <div className="min-h-screen overflow-x-hidden bg-background">
@@ -87,11 +88,11 @@ function BranchPage() {
         <Reveal>
           <span className="pill glass text-primary">Games at {city}</span>
           <h2 className="mt-4 font-display text-4xl leading-[0.95] md:text-6xl">
-            {attractions.length} ways to <span className="text-blast">blast</span>
+            {games.length} ways to <span className="text-blast">blast</span>
           </h2>
         </Reveal>
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
-          {attractions.map((a, i) => (
+          {games.map((a, i) => (
             <Reveal key={a.name} from="up" delay={i * 50}>
               <article className="neon-ring group relative aspect-[3/4] overflow-hidden rounded-3xl">
                 <img src={a.img} alt={a.name} loading="lazy" className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" />
