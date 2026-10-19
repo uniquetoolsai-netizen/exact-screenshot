@@ -20,7 +20,7 @@ const slides = [
     price: "₹499",
     priceNote: "per guest onwards",
     cta: "Contact Us For Packages",
-    img: photos.partyGroup,
+    img: "https://res.cloudinary.com/o6hhnpet/image/upload/v1792451177/WhatsApp_Image_2026-10-19_at_7.04.57_PM.jpg",
     alt: "Families and friends gathered at FunBlast",
   },
   {
@@ -38,7 +38,7 @@ const slides = [
     price: "₹399",
     priceNote: "per guest onwards",
     cta: "Contact Us For Packages",
-    img: photos.loungeGroup,
+    img: "https://res.cloudinary.com/o6hhnpet/image/upload/v1792451201/WhatsApp_Image_2026-10-19_at_7.08.38_PM.jpg",
     alt: "Friends gathered in the FunBlast lounge",
   },
   {
@@ -56,7 +56,7 @@ const slides = [
     price: "₹599",
     priceNote: "per guest onwards",
     cta: "Contact Us For Packages",
-    img: photos.friends,
+    img: "https://res.cloudinary.com/o6hhnpet/image/upload/v1792451177/WhatsApp_Image_2026-10-19_at_7.06.52_PM.jpg",
     alt: "A group of visitors enjoying a FunBlast outing",
   },
 ];
