@@ -6,6 +6,8 @@ import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 import { z } from "zod";
 
+import { BRANCH_DETAILS } from "@/components/BranchDetails";
+import { branchCities } from "@/data/site";
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -161,6 +163,37 @@ function ContactPage() {
         </div>
       </section>
 
+      <section className="mx-auto max-w-[112rem] px-5 pb-20 md:px-10">
+        <h2 className="font-display text-4xl leading-[0.92] md:text-5xl">
+          Branch <span className="text-blast">contacts</span>
+        </h2>
+        <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {branchCities.map((city, i) => {
+            const b = BRANCH_DETAILS[city];
+            return (
+              <Reveal key={city} from="up" delay={i * 40}>
+                <div className="glass flex h-full flex-col rounded-3xl p-6">
+                  <h3 className="font-display text-xl text-primary">{city}</h3>
+                  <p className="mt-2 flex flex-1 gap-2 text-sm text-muted-foreground">
+                    <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                    {b.address}
+                  </p>
+                  <a href={b.phoneHref} className="mt-3 flex items-center gap-2 font-semibold hover:text-primary">
+                    <Phone className="h-4 w-4 text-primary" />
+                    {b.phone}
+                  </a>
+                  <div className="mt-4 flex gap-2">
+                    <a href={b.instagram} target="_blank" rel="noreferrer" aria-label={`${city} Instagram`} className={iconLink}><Instagram className="h-4 w-4" /></a>
+                    <a href={b.youtube} target="_blank" rel="noreferrer" aria-label={`${city} YouTube`} className={iconLink}><Youtube className="h-4 w-4" /></a>
+                    <a href={b.maps} target="_blank" rel="noreferrer" aria-label={`${city} on Google Maps`} className={iconLink}><MapPin className="h-4 w-4" /></a>
+                  </div>
+                </div>
+              </Reveal>
+            );
+          })}
+        </div>
+      </section>
+
       <section className="mx-auto max-w-[112rem] px-5 pb-24 md:px-10">
         <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
           <Reveal from="left">
@@ -184,7 +217,7 @@ function ContactPage() {
                   <Instagram className="h-4 w-4" />
                 </a>
                 <a
-                  href="https://youtube.com/@funblast_india?si=jddapXzFFIGXzb7k"
+                  href="https://youtube.com/@funblast-01f?si=KyjNtqdfW6uzzvzF"
                   target="_blank"
                   rel="noreferrer"
                   aria-label="FunBlast on YouTube"

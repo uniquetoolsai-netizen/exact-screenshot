@@ -13,7 +13,7 @@ type BranchInfo = {
   youtube: string;
 };
 
-const YT = "https://youtube.com/@funblast_india?si=jddapXzFFIGXzb7k";
+const YT = "https://youtube.com/@funblast-01f?si=KyjNtqdfW6uzzvzF";
 
 export const BRANCH_DETAILS: Record<string, BranchInfo> = {
   "Ahmedabad SBR": {
