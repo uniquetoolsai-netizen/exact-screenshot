@@ -130,10 +130,10 @@ function ContactPage() {
               <Phone className="h-5 w-5 text-primary" />
               <h2 className="mt-3 font-display text-xl">Call us</h2>
               <a
-                href="tel:+916358055050"
+                href="tel:+919586601007"
                 className="mt-1 block text-sm text-muted-foreground hover:text-primary"
               >
-                +91 63580 55050
+                095866 01007
               </a>
             </div>
           </Reveal>
@@ -154,7 +154,7 @@ function ContactPage() {
               <MapPin className="h-5 w-5 text-primary" />
               <h2 className="mt-3 font-display text-xl">Head office</h2>
               <p className="mt-1 text-sm text-muted-foreground">
-                SBR Complex, SG Highway, Ahmedabad, Gujarat
+                Sindhu Bhavan Marg, PRL Colony, Thaltej, Ahmedabad, Gujarat 380059
               </p>
             </div>
           </Reveal>
