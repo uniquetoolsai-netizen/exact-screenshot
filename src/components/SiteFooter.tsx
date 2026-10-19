@@ -88,14 +88,13 @@ export function SiteFooter() {
           <h3 className="font-display text-sm text-primary">Contact Us</h3>
           <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
             <li className="flex items-center gap-2">
-              <Phone className="h-4 w-4 text-secondary" /> +91 63580 55050
+              <Phone className="h-4 w-4 text-secondary" /> 095866 01007
             </li>
             <li className="flex items-center gap-2">
               <Mail className="h-4 w-4 text-secondary" /> funblast2007@gmail.com
             </li>
             <li className="flex items-start gap-2">
-              <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-secondary" /> SBR Complex, SG
-              Highway, Ahmedabad, Gujarat
+              <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-secondary" /> Sindhu Bhavan Marg, PRL Colony, Thaltej, Ahmedabad, Gujarat 380059
             </li>
           </ul>
         </div>
