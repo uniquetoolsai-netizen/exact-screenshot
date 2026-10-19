@@ -6,20 +6,26 @@ import { BranchMap } from "@/components/BranchMap";
 import { Reveal } from "@/components/Reveal";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
+import sbrVideo from "@/assets/videos/branch-sbr.mp4.asset.json";
+import sgVideo from "@/assets/videos/branch-sg.mp4.asset.json";
+import nikolVideo from "@/assets/videos/branch-nikol.mp4.asset.json";
+import rajkotVideo from "@/assets/videos/branch-rajkot.mp4.asset.json";
+import gandhidhamVideo from "@/assets/videos/branch-gandhidham.mp4.asset.json";
+import mehsanaVideo from "@/assets/videos/branch-mehsana.mp4.asset.json";
 import { photos } from "@/data/photos";
 import { branchCities, branchPhoto, gamesForBranch } from "@/data/site";
 
 // Fallback hero video for branches without their own Drive video.
 const HERO_VIDEO = "https://cdn.pixabay.com/video/2020/05/25/40130-424930032_large.mp4";
 
-// Branch TV videos from the shared Google Drive folder (must stay link-shared).
-const BRANCH_DRIVE_VIDEOS: Record<string, string> = {
-  "Ahmedabad SBR": "1JtbrfeOfhJu288J1zcrT3Sz7qaJYjqBt",
-  "Ahmedabad SG Highway": "1IXwTQUo0uO2S081AFP3X-0_A51AM543b",
-  "Ahmedabad Nikol": "1BPtZ-CK1dHsO8Yyvvg2BXgoLmrFPB4Or",
-  Rajkot: "1b4lBzaPnA8iq4VnM7rwzwLHZVPaDhZvc",
-  Gandhidham: "1vRP9PQi9UR1FZRI20LCJljGNBlr3eVCf",
-  Mehsana: "1ZvzZxylZHAFnnGNxxm8NFsJ7K8MyKYFb",
+// Web-optimised branch TV videos (from the shared Drive folder).
+const BRANCH_VIDEOS: Record<string, string> = {
+  "Ahmedabad SBR": sbrVideo.url,
+  "Ahmedabad SG Highway": sgVideo.url,
+  "Ahmedabad Nikol": nikolVideo.url,
+  Rajkot: rajkotVideo.url,
+  Gandhidham: gandhidhamVideo.url,
+  Mehsana: mehsanaVideo.url,
 };
 
 export const branchSlug = (city: string) => city.toLowerCase().replace(/\s+/g, "-");
@@ -72,32 +78,25 @@ function BranchPage() {
           <Link to="/branches" className="mb-5 inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary">
             <ArrowLeft className="h-4 w-4" /> All branches
           </Link>
-          <div className="mb-5">
-            <span className="pill glass text-primary">FunBlast Branch</span>
-            <h1 className="mt-3 font-display text-4xl leading-[0.9] md:text-8xl">
-              {city.replace("Ahmedabad ", "")} <span className="text-blast">{city.startsWith("Ahmedabad") ? "Ahmedabad" : "Blast Zone"}</span>
-            </h1>
-          </div>
           <div className="neon-ring relative aspect-video w-full overflow-hidden rounded-3xl bg-card">
-            {BRANCH_DRIVE_VIDEOS[city] ? (
-              <iframe
-                src={`https://drive.google.com/file/d/${BRANCH_DRIVE_VIDEOS[city]}/preview`}
-                title={`FunBlast ${city} video`}
-                allow="autoplay; fullscreen"
-                allowFullScreen
-                className="absolute inset-0 h-full w-full border-0"
-              />
-            ) : (
-              <video
-                src={HERO_VIDEO}
-                poster={branchPhoto(city)}
-                autoPlay
-                muted
-                loop
-                playsInline
-                className="absolute inset-0 h-full w-full object-cover"
-              />
-            )}
+            <video
+              key={city}
+              src={BRANCH_VIDEOS[city] ?? HERO_VIDEO}
+              poster={branchPhoto(city)}
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="auto"
+              className="absolute inset-0 h-full w-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
+            <div className="absolute inset-x-0 bottom-0 p-5 md:p-12">
+              <span className="pill glass text-primary">FunBlast Branch</span>
+              <h1 className="mt-3 font-display text-4xl leading-[0.9] md:text-8xl">
+                {city.replace("Ahmedabad ", "")} <span className="text-blast">{city.startsWith("Ahmedabad") ? "Ahmedabad" : "Blast Zone"}</span>
+              </h1>
+            </div>
           </div>
         </div>
       </section>
