@@ -4,11 +4,13 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import party from "@/assets/hero-1-50-33.jpg.asset.json";
 import school from "@/assets/hero-1-50-34.jpg.asset.json";
 import branches from "@/assets/hero-2-36-02.jpg.asset.json";
+import extra from "@/assets/hero-4.jpg.asset.json";
 
 const slides = [
   { src: party.url, alt: "Host your next party at FunBlast — kitty, birthday and corporate parties" },
   { src: school.url, alt: "School outing at FunBlast — book your school's slot" },
   { src: branches.url, alt: "Gujarat's biggest gamezone chain — 8 branches across Gujarat" },
+  { src: extra.url, alt: "FunBlast gaming zone" },
 ];
 
 export function HeroSlider() {
