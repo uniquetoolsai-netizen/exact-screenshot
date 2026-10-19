@@ -8,7 +8,6 @@ import {
   ShieldCheck,
   Sparkles,
   Star,
-  Ticket,
   Users,
   Zap,
 } from "lucide-react";
@@ -320,13 +319,13 @@ function Index() {
                 <Zap className="h-3.5 w-3.5" /> Insert coin
               </span>
               <h2 className="max-w-2xl font-display text-5xl leading-[0.9] md:text-7xl">
-                Ready to <span className="shimmer-text">blast off?</span>
+                Ready for <span className="shimmer-text">the fun?</span>
               </h2>
-              <p className="max-w-md text-sm text-muted-foreground">
-                Grab your passes online and skip the counter queue at any FunBlast branch.
+              <p className="max-w-xl text-sm text-muted-foreground">
+                Experience endless fun, games, and unforgettable moments at Fun Blast. Visit your nearest branch and let the excitement begin!
               </p>
-              <Link to="/contact" className="btn-blast rounded-full px-7 py-3.5">
-                Book Tickets <Ticket className="h-4 w-4" />
+              <Link to="/branches" className="btn-blast rounded-full px-7 py-3.5">
+                Visit Your Nearest Branch <ArrowRight className="h-4 w-4" />
               </Link>
 
             </div>
