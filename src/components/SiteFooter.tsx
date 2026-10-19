@@ -68,7 +68,7 @@ export function SiteFooter() {
 
         <FooterCol
           title="Attractions"
-          items={["Bowling", "Go Karting", "VR Games", "Trampoline Park", "Arcade", "Kids Zone"]}
+          items={["Bowling", "Go-Karting", "VR Games", "Trampoline", "Arcade", "Kids Zone"]}
         />
         <FooterCol title="Packages" items={["Birthday", "School", "Corporate", "Group"]} />
 

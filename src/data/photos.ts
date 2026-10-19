@@ -17,19 +17,19 @@ export const photos = {
 };
 
 export const galleryPhotos = [
-  { img: photos.airHockey, label: "Air hockey", category: "Arcade Games Zone" },
-  { img: photos.vrPlayers, label: "VR adventures", category: "VR Gaming Arena" },
-  { img: photos.racing, label: "Arcade racers", category: "Arcade Games Zone" },
+  { img: photos.airHockey, label: "Air hockey", category: "Arcade Games" },
+  { img: photos.vrPlayers, label: "VR adventures", category: "VR" },
+  { img: photos.racing, label: "Arcade racers", category: "Arcade Games" },
   { img: photos.partyGroup, label: "Group celebrations", category: null },
-  { img: photos.gamePrizes, label: "Winning moments", category: "Arcade Games Zone" },
-  { img: photos.vrRide, label: "Virtual reality", category: "VR Gaming Arena" },
+  { img: photos.gamePrizes, label: "Winning moments", category: "Arcade Games" },
+  { img: photos.vrRide, label: "Virtual reality", category: "VR" },
   { img: photos.kidsRide, label: "Little riders", category: "Kids Play Area" },
   { img: photos.family, label: "Family days", category: null },
   { img: photos.haunted, label: "Haunted house", category: "Haunted House" },
-  { img: photos.arcadeGroup, label: "Arcade crew", category: "Arcade Games Zone" },
+  { img: photos.arcadeGroup, label: "Arcade crew", category: "Arcade Games" },
   { img: photos.friends, label: "Friends together", category: null },
   { img: photos.wall, label: "FunBlast memories", category: null },
-  { img: photos.youngPlayers, label: "Young players", category: "Arcade Games Zone" },
+  { img: photos.youngPlayers, label: "Young players", category: "Arcade Games" },
   { img: photos.loungeFriends, label: "Lounge catch-ups", category: null },
   { img: photos.loungeGroup, label: "Good times together", category: null },
 ];
