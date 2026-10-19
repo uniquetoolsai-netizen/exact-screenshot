@@ -25,12 +25,12 @@ export function HeroSlider() {
 
   return (
     <section
-      className="relative pt-24 md:pt-28"
+      className="relative pt-20 md:pt-24"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
-      <div className="relative mx-auto max-w-[112rem] px-3 md:px-10">
-        <div className="relative aspect-video overflow-hidden rounded-2xl border border-primary/30 bg-background md:rounded-[2rem]">
+      <div className="relative w-full">
+        <div className="relative aspect-video w-full overflow-hidden bg-background">
           {slides.map((s, idx) => (
             <img
               key={s.src}
@@ -60,7 +60,7 @@ export function HeroSlider() {
             <ChevronRight className="h-5 w-5" />
           </button>
         </div>
-        <div className="mt-4 flex justify-center gap-2">
+        <div className="absolute inset-x-0 bottom-3 flex justify-center gap-2 md:bottom-6">
           {slides.map((s, idx) => (
             <button
               key={s.src}
