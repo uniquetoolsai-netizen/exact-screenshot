@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { Facebook, Instagram, Mail, MapPin, Phone, Youtube } from "lucide-react";
 
 import { Logo } from "@/components/SiteHeader";
-import { navLinks } from "@/data/site";
+import { branchCities, navLinks } from "@/data/site";
 
 function FooterCol({ title, items }: { title: string; items: string[] }) {
   return (
@@ -66,10 +66,22 @@ export function SiteFooter() {
           </ul>
         </div>
 
-        <FooterCol
-          title="Attractions"
-          items={["Bowling", "Go-Karting", "VR Games", "Trampoline", "Arcade", "Kids Zone"]}
-        />
+        <div>
+          <h3 className="font-display text-sm text-primary">Branches</h3>
+          <ul className="mt-4 space-y-2.5">
+            {branchCities.map((city) => (
+              <li key={city}>
+                <Link
+                  to="/branches/$slug"
+                  params={{ slug: city.toLowerCase().replace(/\s+/g, "-") }}
+                  className="text-sm text-muted-foreground transition-colors hover:text-primary"
+                >
+                  {city}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
         <FooterCol title="Packages" items={["Birthday", "School", "Corporate", "Group"]} />
 
         <div>
