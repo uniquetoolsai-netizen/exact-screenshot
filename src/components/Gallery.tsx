@@ -13,9 +13,14 @@ const gamePhotos = [
     .map(({ name, img }) => ({ img, label: name, category: name })),
 ];
 
+// Home slider shows a few photos per game to keep the page light.
+const sliderPhotos = gamePhotos.filter(
+  (p, i) => gamePhotos.slice(0, i).filter((q) => q.category === p.category).length < 2,
+);
+
 function GallerySlider() {
-  const half = Math.ceil(gamePhotos.length / 2);
-  const rows = [gamePhotos.slice(0, half), gamePhotos.slice(half)];
+  const half = Math.ceil(sliderPhotos.length / 2);
+  const rows = [sliderPhotos.slice(0, half), sliderPhotos.slice(half)];
   return (
     <div className="gallery-slider mt-10 space-y-5" aria-label="FunBlast photo slider">
       {rows.map((row, r) => (
