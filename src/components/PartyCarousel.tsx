@@ -19,7 +19,7 @@ const slides = [
     ],
     price: "₹499",
     priceNote: "per guest onwards",
-    cta: "Plan My Party",
+    cta: "Contact Us For Packages",
     img: photos.partyGroup,
     alt: "Families and friends gathered at FunBlast",
   },
