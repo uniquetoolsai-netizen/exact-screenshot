@@ -71,12 +71,6 @@ export function PartyBanner({
             className="absolute inset-0 h-full w-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-background/80 to-transparent" />
-          <div className="glass absolute bottom-6 left-1/2 -translate-x-1/2 rounded-2xl px-5 py-3 text-center lg:left-auto lg:right-6 lg:translate-x-0">
-            <p className="font-display text-2xl text-primary">{price}</p>
-            <p className="font-sans text-[0.55rem] tracking-[0.22em] text-muted-foreground uppercase">
-              {priceNote}
-            </p>
-          </div>
         </div>
       </div>
     </Reveal>
