@@ -15,6 +15,7 @@ import {
 
 import { Counter, Reveal } from "@/components/Reveal";
 import { PartyCarousel } from "@/components/PartyCarousel";
+import { HeroSlider } from "@/components/HeroSlider";
 import { TiltCard } from "@/components/TiltCard";
 import { Gallery } from "@/components/Gallery";
 import { Testimonials } from "@/components/Testimonials";
@@ -128,106 +129,10 @@ function Index() {
       <SiteHeader />
 
 
-      {/* ── Hero: kinetic arcade stage ── */}
-      <section className="relative flex min-h-[780px] items-center overflow-hidden pt-32 pb-20">
-        <img
-          src={photos.airHockey}
-          alt="Visitors playing air hockey at FunBlast arcade"
-          width={1600}
-          height={1008}
-          className="absolute inset-0 h-full w-full object-cover object-[70%_center] opacity-80"
-        />
-        <div className="hero-fade absolute inset-0" />
-        <div className="grid-floor absolute inset-0 opacity-70" />
-        <div className="absolute inset-x-0 bottom-0 h-56 bg-gradient-to-t from-background to-transparent" />
-        <div className="conic-halo absolute top-1/4 -left-24 h-72 w-72 rounded-full" />
-
-        <div className="relative mx-auto grid w-full max-w-[112rem] items-center gap-12 px-5 md:px-10 lg:grid-cols-[1.05fr_0.95fr]">
-          <div>
-            <Reveal from="left">
-              <span className="pill glass text-primary">
-                <Sparkles className="h-3.5 w-3.5" /> Gujarat's loudest playground
-              </span>
-            </Reveal>
-            <Reveal from="left" delay={90}>
-              <h1 className="mt-6 font-display text-[3.8rem] leading-[0.82] sm:text-8xl xl:text-[9rem]">
-                <span className="block text-foreground">More Fun</span>
-                <span className="shimmer-text block">More Blast!</span>
-              </h1>
-            </Reveal>
-            <Reveal from="left" delay={180}>
-              <p className="mt-7 max-w-lg text-lg leading-relaxed text-muted-foreground">
-                150+ games. Eight cities. One rule — never stop playing. Karts, VR arenas,
-                bowling lanes and a trampoline sky, all under one roof.
-              </p>
-            </Reveal>
-            <Reveal from="up" delay={260}>
-              <div className="mt-9 flex flex-wrap items-center gap-4">
-                <Link to="/contact" className="btn-blast rounded-full px-6 py-3">
-                  Book Tickets <Ticket className="h-4 w-4" />
-                </Link>
-                <Link to="/attractions" className="btn-ghost-blast rounded-full px-6 py-3">
-                  Explore Rides <ArrowRight className="h-4 w-4" />
-                </Link>
-              </div>
-            </Reveal>
-
-
-            <Reveal from="up" delay={340}>
-              <dl className="mt-12 grid max-w-xl grid-cols-2 gap-3 sm:grid-cols-4">
-                {[
-                  { v: 1, s: "M+", d: 0, label: "Visitors" },
-                  { v: 8, s: "+", d: 0, label: "Locations" },
-                  { v: 150, s: "+", d: 0, label: "Games" },
-                  { v: 4.8, s: "", d: 1, label: "Rating" },
-                ].map(({ v, s, d, label }) => (
-                  <div key={label} className="glass rounded-2xl px-5 md:px-10 py-3">
-                    <dt className="font-display text-2xl text-primary">
-                      <Counter to={v} suffix={s} decimals={d} />
-                    </dt>
-                    <dd className="font-sans text-[0.62rem] tracking-[0.2em] text-muted-foreground uppercase">
-                      {label}
-                    </dd>
-                  </div>
-                ))}
-              </dl>
-            </Reveal>
-          </div>
-
-          <div className="relative hidden lg:block">
-            <TiltCard className="glass animate-bob ml-auto w-64 rounded-3xl p-5">
-              <p className="font-sans text-[0.65rem] tracking-[0.25em] text-primary uppercase">
-                Now trending
-              </p>
-              <p className="mt-2 font-display text-2xl">VR Arena 2.0</p>
-              <p className="mt-1 text-xs text-muted-foreground">
-                Six-player free-roam missions. Live at 4 branches.
-              </p>
-              <Link
-                to="/attractions"
-                className="mt-4 inline-flex items-center gap-1 font-sans text-xs font-bold tracking-[0.16em] text-primary uppercase"
-              >
-                Try it <ArrowUpRight className="h-3.5 w-3.5" />
-              </Link>
-
-            </TiltCard>
-            <TiltCard className="glass mt-6 w-56 rounded-3xl p-5">
-              <p className="font-display text-3xl text-primary">
-                <Counter to={4.8} decimals={1} />
-              </p>
-              <div className="mt-1 flex gap-0.5">
-                {[0, 1, 2, 3, 4].map((i) => (
-                  <Star key={i} className="h-3.5 w-3.5 fill-current text-primary" />
-                ))}
-              </div>
-              <p className="mt-2 text-xs text-muted-foreground">Rated by 12,400+ guests</p>
-            </TiltCard>
-          </div>
-        </div>
-      </section>
+      <HeroSlider />
 
       {/* ── Double-direction skewed ticker ── */}
-      <div className="relative -mt-6 -rotate-2 border-y border-primary/25 bg-background/60 py-1">
+      <div className="relative mt-8 -rotate-2 border-y border-primary/25 bg-background/60 py-1">
         <div className="blast-bar border-b border-border/40">
           <MarqueeRow />
         </div>
