@@ -72,32 +72,29 @@ function BranchPage() {
           <Link to="/branches" className="mb-5 inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary">
             <ArrowLeft className="h-4 w-4" /> All branches
           </Link>
-          <div className="mb-5">
-            <span className="pill glass text-primary">FunBlast Branch</span>
-            <h1 className="mt-3 font-display text-4xl leading-[0.9] md:text-8xl">
-              {city.replace("Ahmedabad ", "")} <span className="text-blast">{city.startsWith("Ahmedabad") ? "Ahmedabad" : "Blast Zone"}</span>
-            </h1>
-          </div>
           <div className="neon-ring relative aspect-video w-full overflow-hidden rounded-3xl bg-card">
-            {BRANCH_DRIVE_VIDEOS[city] ? (
-              <iframe
-                src={`https://drive.google.com/file/d/${BRANCH_DRIVE_VIDEOS[city]}/preview`}
-                title={`FunBlast ${city} video`}
-                allow="autoplay; fullscreen"
-                allowFullScreen
-                className="absolute inset-0 h-full w-full border-0"
-              />
-            ) : (
-              <video
-                src={HERO_VIDEO}
-                poster={branchPhoto(city)}
-                autoPlay
-                muted
-                loop
-                playsInline
-                className="absolute inset-0 h-full w-full object-cover"
-              />
-            )}
+            <video
+              key={city}
+              src={
+                BRANCH_DRIVE_VIDEOS[city]
+                  ? `https://drive.usercontent.google.com/download?id=${BRANCH_DRIVE_VIDEOS[city]}&export=download&confirm=t`
+                  : HERO_VIDEO
+              }
+              poster={branchPhoto(city)}
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="auto"
+              className="absolute inset-0 h-full w-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
+            <div className="absolute inset-x-0 bottom-0 p-5 md:p-12">
+              <span className="pill glass text-primary">FunBlast Branch</span>
+              <h1 className="mt-3 font-display text-4xl leading-[0.9] md:text-8xl">
+                {city.replace("Ahmedabad ", "")} <span className="text-blast">{city.startsWith("Ahmedabad") ? "Ahmedabad" : "Blast Zone"}</span>
+              </h1>
+            </div>
           </div>
         </div>
       </section>
