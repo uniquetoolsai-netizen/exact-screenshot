@@ -170,6 +170,7 @@ function ContactPage() {
         <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {branchCities.map((city, i) => {
             const b = BRANCH_DETAILS[city];
+            if (!b) return null;
             return (
               <Reveal key={city} from="up" delay={i * 40}>
                 <div className="glass flex h-full flex-col rounded-3xl p-6">
