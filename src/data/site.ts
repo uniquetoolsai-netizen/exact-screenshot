@@ -71,14 +71,15 @@ export const branchCities = [
 ];
 
 
-/** Branch thumbnail photos (Mehsana has none yet, so it uses a venue photo). */
+/** Branch thumbnail photos . */
 export const branchPhotos: Record<string, string> = {
   "Ahmedabad SBR": "https://res.cloudinary.com/o6hhnpet/image/upload/v1792450681/SBR_outside.jpg",
-  "Ahmedabad SG Highway": "https://res.cloudinary.com/o6hhnpet/image/upload/v1792450557/Gota.jpg",
+  "Ahmedabad SG Highway": "https://res.cloudinary.com/o6hhnpet/image/upload/v1792450556/GOTA_YT.jpg",
   "Ahmedabad Ranip": "https://res.cloudinary.com/o6hhnpet/image/upload/v1792450558/RANIP_YT.jpg",
-  "Ahmedabad Nikol": "https://res.cloudinary.com/o6hhnpet/image/upload/v1792450559/nikol.jpg",
+  "Ahmedabad Nikol": "https://res.cloudinary.com/o6hhnpet/image/upload/v1792450557/nikol_023.jpg",
   Rajkot: "https://res.cloudinary.com/o6hhnpet/image/upload/v1792450560/Rajkot.jpg",
   Gandhidham: "https://res.cloudinary.com/o6hhnpet/image/upload/v1792450556/GANDHIDHAM.jpg",
+  Mehsana: "https://res.cloudinary.com/o6hhnpet/image/upload/v1792450561/Bhavnagar_outside.jpg",
   Vadodara: "https://res.cloudinary.com/o6hhnpet/image/upload/v1792450556/Baroda.jpg",
 };
 
