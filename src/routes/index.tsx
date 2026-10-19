@@ -87,13 +87,13 @@ const branchRowB = ["Rajkot", "Gandhidham", "Vadodara", "Mehsana"];
 
 const ticker = [
   "Bowling",
-  "Go Karting",
+  "Go-Karting",
   "VR Games",
   "Trampoline",
   "Arcade",
   "Kids Zone",
-  "Bumper Cars",
-  "Laser Tag",
+  "Bumper Car",
+  "Laser Games",
 ];
 
 
