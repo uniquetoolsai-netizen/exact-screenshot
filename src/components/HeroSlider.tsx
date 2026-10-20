@@ -27,7 +27,7 @@ export function HeroSlider() {
 
   return (
     <section
-      className="relative pt-28 md:pt-32"
+      className="relative pt-28 md:pt-40"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
