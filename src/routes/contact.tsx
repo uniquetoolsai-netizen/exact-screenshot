@@ -135,7 +135,7 @@ function ContactPage() {
                 href="tel:+919586601007"
                 className="mt-1 block text-sm text-muted-foreground hover:text-primary"
               >
-                095866 01007
+                95866 01007
               </a>
             </div>
           </Reveal>

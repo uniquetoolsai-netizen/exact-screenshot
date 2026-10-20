@@ -18,7 +18,7 @@ const YT = "https://youtube.com/@funblast-01f?si=KyjNtqdfW6uzzvzF";
 export const BRANCH_DETAILS: Record<string, BranchInfo> = {
   "Ahmedabad SBR": {
     address: "SBR, Ahmedabad",
-    phone: "095866 01007",
+    phone: "95866 01007",
     phoneHref: "tel:+919586601007",
     instagram: "https://www.instagram.com/funblastindia/",
     maps: "https://share.google/niK8UpRf8GIUawCNk",
@@ -50,7 +50,7 @@ export const BRANCH_DETAILS: Record<string, BranchInfo> = {
   },
   Vadodara: {
     address: "Rajmahal Road, Vadodara (Baroda)",
-    phone: "070690 97000",
+    phone: "70690 97000",
     phoneHref: "tel:+917069097000",
     instagram: "https://www.instagram.com/funblast_baroda/",
     maps: "https://share.google/MxSwFZyybPG7i9Wjf",
@@ -58,7 +58,7 @@ export const BRANCH_DETAILS: Record<string, BranchInfo> = {
   },
   Gandhidham: {
     address: "Near Om Multiplex Cinema, Rambag Road, Gandhidham",
-    phone: "096234 15000",
+    phone: "96234 15000",
     phoneHref: "tel:+919623415000",
     instagram: "https://www.instagram.com/funblast_gandhidham/",
     maps: "https://share.google/oLN7jFp32FAZGAIbX",
