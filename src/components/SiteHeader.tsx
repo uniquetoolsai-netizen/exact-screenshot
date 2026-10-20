@@ -17,12 +17,12 @@ const slugOf = (city: string) => city.toLowerCase().replace(/\s+/g, "-");
 export function Logo({ compact = false }: { compact?: boolean }) {
   return (
     <Link to="/" className="group inline-flex min-w-0 items-center gap-3">
-      <span className="shrink-0 rounded-2xl border-2 border-foreground bg-foreground/10 p-1.5 shadow-lg ring-4 ring-foreground/20 backdrop-blur-sm transition-all duration-300 group-hover:bg-foreground/15 group-hover:ring-foreground/35">
+      <span className="shrink-0 rounded-xl border-2 border-foreground bg-foreground/10 p-1 shadow-lg ring-2 sm:rounded-2xl sm:p-1.5 sm:ring-4 ring-foreground/20 backdrop-blur-sm transition-all duration-300 group-hover:bg-foreground/15 group-hover:ring-foreground/35">
         <img
           src={logoAsset}
           alt="FunBlast Gaming Zone logo"
           className={`w-auto transition-transform duration-300 group-hover:scale-105 ${
-            compact ? "h-12" : "h-14 md:h-20"
+            compact ? "h-12" : "h-10 sm:h-14 md:h-20"
           }`}
         />
       </span>
@@ -35,7 +35,7 @@ export function SiteHeader() {
 
   return (
     <header className="fixed top-0 z-50 w-full px-3 pt-3 md:px-6 md:pt-5">
-      <div className="glass-strong mx-auto grid max-w-[112rem] grid-cols-[minmax(0,1fr)_auto] items-center gap-4 rounded-2xl px-4 py-2.5 md:px-10 lg:flex lg:justify-between lg:gap-6">
+      <div className="glass-strong mx-auto grid max-w-[112rem] grid-cols-[minmax(0,1fr)_auto] items-center gap-4 rounded-2xl px-3 py-2 sm:px-4 sm:py-2.5 md:px-10 lg:flex lg:justify-between lg:gap-6">
         <Logo />
 
         <nav className="hidden items-center gap-7 lg:flex">

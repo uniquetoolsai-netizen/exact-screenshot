@@ -131,7 +131,7 @@ function Index() {
       <HeroSlider />
 
       {/* ── Double-direction skewed ticker ── */}
-      <div className="relative mt-8 -rotate-2 border-y border-primary/25 bg-background/60 py-1">
+      <div className="relative mt-4 -rotate-2 md:mt-8 border-y border-primary/25 bg-background/60 py-1">
         <div className="blast-bar border-b border-border/40">
           <MarqueeRow />
         </div>
@@ -139,7 +139,7 @@ function Index() {
       </div>
 
       {/* ── Attractions: swipeable ticket rail ── */}
-      <section id="attractions" className="py-24">
+      <section id="attractions" className="py-14 md:py-24">
         <div className="mx-auto flex max-w-[112rem] flex-wrap items-end justify-between gap-6 px-5 md:px-10">
           <Reveal>
             <span className="pill glass text-primary">Attractions</span>

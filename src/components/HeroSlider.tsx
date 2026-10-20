@@ -27,7 +27,7 @@ export function HeroSlider() {
 
   return (
     <section
-      className="relative pt-28 md:pt-40"
+      className="relative pt-[5.5rem] sm:pt-28 md:pt-40"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
@@ -46,7 +46,7 @@ export function HeroSlider() {
             />
           ))}
         </div>
-        <div className="flex items-center justify-center gap-4 py-4">
+        <div className="flex items-center justify-center gap-4 py-3 md:py-4">
           <button
             type="button"
             aria-label="Previous slide"
