@@ -79,7 +79,7 @@ export const branchPhotos: Record<string, string> = {
   "Ahmedabad Nikol": "https://res.cloudinary.com/o6hhnpet/image/upload/v1792450557/nikol_023.jpg",
   Rajkot: "https://res.cloudinary.com/o6hhnpet/image/upload/v1792450560/Rajkot.jpg",
   Gandhidham: "https://res.cloudinary.com/o6hhnpet/image/upload/v1792450556/GANDHIDHAM.jpg",
-  Mehsana: "https://res.cloudinary.com/o6hhnpet/image/upload/v1792450561/Bhavnagar_outside.jpg",
+  Mehsana: "https://res.cloudinary.com/o6hhnpet/image/upload/v1792495983/MEHSANA.jpg",
   Vadodara: "https://res.cloudinary.com/o6hhnpet/image/upload/v1792450556/Baroda.jpg",
 };
 
