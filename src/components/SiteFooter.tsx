@@ -88,7 +88,7 @@ export function SiteFooter() {
           <h3 className="font-display text-sm text-primary">Contact Us</h3>
           <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
             <li className="flex items-center gap-2">
-              <Phone className="h-4 w-4 text-secondary" /> 095866 01007
+              <Phone className="h-4 w-4 text-secondary" /> 95866 01007
             </li>
             <li className="flex items-center gap-2">
               <Mail className="h-4 w-4 text-secondary" /> funblast2007@gmail.com
