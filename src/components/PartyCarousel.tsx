@@ -59,6 +59,24 @@ const slides = [
     img: "https://res.cloudinary.com/o6hhnpet/image/upload/v1792451177/WhatsApp_Image_2026-10-19_at_7.06.52_PM.jpg",
     alt: "A group of visitors enjoying a FunBlast outing",
   },
+  {
+    key: "school-trips",
+    tab: "School Trips",
+    badge: "School Trips",
+    titleTop: "School outings that",
+    titleAccent: "actually blast!",
+    perks: [
+      "Group entry packages",
+      "Games & activities",
+      "Meal & snack combos",
+      "Dedicated coordinator",
+    ],
+    price: "₹399",
+    priceNote: "per guest onwards",
+    cta: "Contact Us For Packages",
+    img: "https://res.cloudinary.com/o6hhnpet/image/upload/v1792500722/school_picnic_2.png",
+    alt: "Students enjoying a school trip at FunBlast",
+  },
 ];
 
 export function PartyCarousel() {
