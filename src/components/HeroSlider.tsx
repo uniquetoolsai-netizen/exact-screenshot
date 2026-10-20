@@ -27,7 +27,7 @@ export function HeroSlider() {
 
   return (
     <section
-      className="relative pt-20 md:pt-24"
+      className="relative pt-28 md:pt-32"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
@@ -40,38 +40,40 @@ export function HeroSlider() {
               alt={s.alt}
               width={1920}
               height={1080}
-              className={`absolute inset-0 h-full w-full object-cover transition-all duration-700 ${
-                idx === i ? "scale-100 opacity-100" : "scale-105 opacity-0"
+              className={`absolute inset-0 h-full w-full object-contain transition-all duration-700 ${
+                idx === i ? "opacity-100" : "opacity-0"
               }`}
             />
           ))}
+        </div>
+        <div className="flex items-center justify-center gap-4 py-4">
           <button
             type="button"
             aria-label="Previous slide"
             onClick={() => go(-1)}
-            className="glass absolute top-1/2 left-2 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full text-primary md:left-4 md:h-12 md:w-12"
+            className="glass flex h-9 w-9 items-center justify-center rounded-full text-primary md:h-11 md:w-11"
           >
             <ChevronLeft className="h-5 w-5" />
           </button>
+          <div className="flex gap-2">
+            {slides.map((s, idx) => (
+              <button
+                key={s.src}
+                type="button"
+                aria-label={`Go to slide ${idx + 1}`}
+                onClick={() => setI(idx)}
+                className={`h-2 rounded-full transition-all ${idx === i ? "w-8 bg-primary" : "w-2 bg-muted-foreground/50"}`}
+              />
+            ))}
+          </div>
           <button
             type="button"
             aria-label="Next slide"
             onClick={() => go(1)}
-            className="glass absolute top-1/2 right-2 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full text-primary md:right-4 md:h-12 md:w-12"
+            className="glass flex h-9 w-9 items-center justify-center rounded-full text-primary md:h-11 md:w-11"
           >
             <ChevronRight className="h-5 w-5" />
           </button>
-        </div>
-        <div className="absolute inset-x-0 bottom-3 flex justify-center gap-2 md:bottom-6">
-          {slides.map((s, idx) => (
-            <button
-              key={s.src}
-              type="button"
-              aria-label={`Go to slide ${idx + 1}`}
-              onClick={() => setI(idx)}
-              className={`h-2 rounded-full transition-all ${idx === i ? "w-8 bg-primary" : "w-2 bg-muted-foreground/50"}`}
-            />
-          ))}
         </div>
       </div>
     </section>
