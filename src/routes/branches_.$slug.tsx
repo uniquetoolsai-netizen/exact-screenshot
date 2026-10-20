@@ -26,6 +26,7 @@ const BRANCH_VIDEOS: Record<string, string> = {
   Rajkot: rajkotVideo.url,
   Gandhidham: gandhidhamVideo.url,
   Mehsana: mehsanaVideo.url,
+  "Ahmedabad Ranip": "https://res.cloudinary.com/o6hhnpet/video/upload/v1792502611/ranip_tv.mp4",
 };
 
 export const branchSlug = (city: string) => city.toLowerCase().replace(/\s+/g, "-");
